@@ -306,7 +306,7 @@ span.K { background-color:green; }              span.TK { color:#779933; }  /*@ 
 <script>
   var roles = {};  // Keys must be single-capital-letter. Example: {'H': 'HÓFEHÉRKE', 'G': 'GONOSZ MOSTOHA', 'K': 'KIRÁLYFI'};
   var ei, es = document.head.getElementsByTagName('STYLE');
-  for (ei = 0; ei < es.length; ++ei) {
+  for (ei = 0; ei< es.length; ++ei) {
     var re = /\nspan[.]([A-Z])[ \t]*\{[^\n]*\/[*]@[ \t]*([^<>\\'"*\/\t\r\n;{}]+?)[ \t]*[*]\//g;  // Must be a separate variable for multiple matches.
     var s = es[ei].innerText, match;
     while ((match = re.exec(s)) !== null) { roles[match[1]] = match[2]; }
