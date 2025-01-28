@@ -65,6 +65,7 @@ span.H { background-color:limegreen; color:#000;} span.TH { color:#32cd32; }  /*
 <body>
 
 <h1>Wass Albert: Mese a tavasz-ébresztő cinegéről</h1>
+<h2>(Wass Albert: Tavak És Erdők Könyve)</h2>
 
 <p>@C:
 <br>@A:
@@ -174,5 +175,22 @@ span.H { background-color:limegreen; color:#000;} span.TH { color:#32cd32; }  /*
   <br>Hideg téli időben, ha ablakodon kinézel, és meglátsz odakint egy kis, fekete fejű, kékesszürke tollazatú madárkát ide-oda szökdösni a bokrokon, jusson eszedbe, hogy ő az a kis cinege, aki meg kell lelje számodra a tavaszt. Ha jól odafigyelsz, meg is hallod, amint vidáman mondogatja: „Keresek! Keresek! Kis csengettyűt keresek!”
   <br>Jól teszed, ha ablakpárkányodon enni is adsz neki, mert bizony nagy felelősséget hordoz ám szegény kis cinege, hiszen őrajta múlik a tavasz! S ha nem kell közben még élelmet is keresnie, hamarabb megleli a hóvirág búvóhelyét, és korábban lesz tavasz megint. Valahányszor szökdösni látod valahol, figyeld meg jól a szavát. Amikor csak azt hajtogatja egyre, hogy „keresek, keresek, keresek!”, akkor bizony még messzire van a tél vége. De amikor azt hallod vidám kis torkából, hogy „kikelet! kikelet! csengetni kell, kikelet!”, akkor tudhatod, hogy a kis cinege már meglelte a hóvirág tündérkéjének rejtekét, és a kis aranycsengettyű hamarosan csilingelni fog valamelyik fa alatt, és téli világodra ráébred a tavasz.
   <br>Ha pedig arról kívánnál meggyőződni, hogy igazat meséltem-e: nézd meg jól közelről a hóvirágot, és meglátod benne, pontosan a közepén, az aranycsöngettyűt.</S-M>
+</div>
 
-(Wass Albert: Tavak És Erdők Könyve)
+</body>
+<script>
+  var roles = {};  // Keys must be single-capital-letter. Example: {'H': 'HÓFEHÉRKE', 'G': 'GONOSZ MOSTOHA', 'K': 'KIRÁLYFI'};
+  var ei, es = document.head.getElementsByTagName('STYLE');
+  for (ei = 0; ei < es.length; ++ei) {
+    var re = /\nspan[.]([A-Z])[ \t]*\{[^\n]*\/[*]@[ \t]*([^<>\\'"*\/\t\r\n;{}]+?)[ \t]*[*]\//g;  // Must be a separate variable for multiple matches.
+    var s = es[ei].innerText, match;
+    while ((match = re.exec(s)) !== null) { roles[match[1]] = match[2]; }
+  }
+  document.body.innerHTML = (document.body.innerHTML
+      .replaceAll(/<X>(.*?)<\/X>/gsi, '<audio controls><source src="$1.mp3" type="audio/mpeg"></audio>')
+      .replaceAll(/<S-([A-Z0-9])>(.*?)<\/S-\1>/gsi, function(m, p1, p2) { if (p1 == '0') return '<div class=C2><span class=IUC>* ' + p2 + '</span></div>'; p1 = p1.toUpperCase(); return '<div class=C1>@' + p1 + '</div><div class=C2><span class=T'+ p1 +'>' + p2 + '</span></div>'; })
+      .replaceAll(/<(I[UV])>(.*?)<\/\1>/gsi, function(m, p1, p2) { return '<span class=' + p1 + 'C>' + p2 + '</span>'; })
+      .replaceAll(/@([A-Z0-9])/g, function(m, p1) { return '<span class="sp ' + p1 + '">' + roles[p1] + '</span>'; })
+      );
+</script>
+</html>
