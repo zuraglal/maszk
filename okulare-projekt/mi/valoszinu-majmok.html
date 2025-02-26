@@ -372,7 +372,7 @@ S fegyvert ragadva véget vet neki?
     while ((match = re.exec(s)) !== null) { roles[match[1]] = match[2]; }
   }
   document.body.innerHTML = (document.body.innerHTML
-      .replaceAll(/<X>(.*?)<\/X>/gsi, '<audio controls><source src="$1.mp3" type="audio/mpeg"></audio>')
+      .replaceAll(/<X>(.*?)<\/X>/gsi, '<audio controls><source src="media/$1.mp3" type="audio/mpeg"></audio>')
       .replaceAll(/<S-([A-Z0-9])>(.*?)<\/S-\1>/gsi, function(m, p1, p2) { if (p1 == '0') return '<div class=C2><span class=IUC>* ' + p2 + '</span></div>'; p1 = p1.toUpperCase(); return '<div class=C1>@' + p1 + '</div><div class=C2><span class=T'+ p1 +'>' + p2 + '</span></div>'; })
       .replaceAll(/<(I[UV])>(.*?)<\/\1>/gsi, function(m, p1, p2) { return '<span class=' + p1 + 'C>' + p2 + '</span>'; })
       .replaceAll(/@([A-Z0-9])/g, function(m, p1) { return '<span class="sp ' + p1 + '">' + roles[p1] + '</span>'; })
