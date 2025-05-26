@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Színdarab Formázása</title>
+<style>
+body {
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+    margin: 20px;
+    line-height: 1.6; /* Kicsit több térköz a sorok között */
+}
+.dialogue-line {
+    display: flex;
+    margin-bottom: 8px;
+    align-items: flex-start; /* A szöveg tetejéhez igazítás */
+}
+.character-name-wrapper {
+    /* Szereplő neve oszlopának stílusa */
+    flex-basis: 80px; /* Alap méret, kisebb érték */
+    max-width: 100px; /* Maximális szélesség, hogy ne legyen túl nagy */
+    text-align: right;
+    padding-right: 10px; /* Kisebb belső térköz */
+    flex-shrink: 0; /* Ne zsugorodjon össze, ha nincs elég hely */
+    font-weight: bold;
+    /* color: white; Alapértelmezett fehér név */
+}
+.character-text-wrapper {
+    /* Szöveg oszlopának stílusa */
+    flex-grow: 1; /* Töltse ki a maradék helyet */
+    text-align: left;
+    padding-left: 5px; /* Kisebb belső térköz */
+}
+
+
+/* Character colors (csak a szöveghez, a név már felül definiált) */
+.character-KIRALY .character-name-wrapper,
+.character-KIRALY .character-text-wrapper { color: #FFD700; } /* Gold */
+.character-PARASZT .character-name-wrapper,
+.character-PARASZT .character-text-wrapper { color: #ADD8E6; } /* LightBlue */
+.character-BOLOND .character-name-wrapper,
+.character-BOLOND .character-text-wrapper { color: #90EE90; } /* LightGreen */
+.character-I-NEMES .character-name-wrapper,
+.character-I-NEMES .character-text-wrapper { color: #FFB6C1; } /* LightPink */
+.character-II-NEMES .character-name-wrapper,
+.character-II-NEMES .character-text-wrapper { color: #DA70D6; } /* Orchid */
+
+/* Narráció stílusok */
+.narration-line {
+    display: flex;
+    margin-bottom: 8px;
+}
+.narration-label {
+    flex-basis: 80px; /* Ugyanaz a méret, mint a név oszlop */
+    max-width: 100px;
+    text-align: right;
+    padding-right: 10px;
+    flex-shrink: 0;
+    font-style: italic;
+    color: white; /* Fehér szín */
+}
+.narration-text-content {
+    flex-grow: 1;
+    text-align: left;
+    padding-left: 5px;
+    font-style: italic;
+    color: white;
+}
+
+/* Utasítás a szövegen belül */
+.instruction-in-text {
+    font-style: italic;
+    color: white;
+}
+
+/* Jelenet cím és bevezető narráció */
+.scene-heading {
+    font-weight: bold;
+    color: white;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+/* Reszponzivitás - kisebb képernyőkre */
+@media (max-width: 768px) {
+    .dialogue-line, .narration-line {
+        flex-direction: column; /* Oszlopba rendeződik a név és a szöveg */
+        align-items: flex-start;
+    }
+    .character-name-wrapper, .narration-label {
+        text-align: left; /* Balra igazítás mobilnézetben */
+        padding-right: 0;
+        padding-bottom: 2px; /* Kicsi térköz a név és a szöveg között */
+        flex-basis: auto; /* Automatikus szélesség */
+        max-width: none; /* Nincs maximális szélesség */
+    }
+    .character-text-wrapper, .narration-text-content {
+        padding-left: 0; /* Nincs bal belső térköz */
+    }
+}
+</style>
+</head>
+<body>
+
+<p class="narration">Ég veled, király!</p>
+<p class="narration">Szereplők :</p>
+<p class="narration">KIRÁLY, Caltarif királya</p>
+<p class="narration">PARASZT, caltarifi jobbágy, a Bolond nagybátyja</p>
+<p class="narration">BOLOND, udvari bolond, a Paraszt unokaöccse a Király talpnyalói</p>
+<p class="narration">I. NEMES</p>
+<p class="narration">II. NEMES</p>
+
+<div class="scene-heading">Első jelenet</div>
+<C-0>Félhomályos üres folyosó. A Paraszt érkezik, feldúltan, magában zsörtölődve. Idegesen keresi azt az ajtót, ahol a terembe be lehet jutni. Hangosan közlekedik, amikor megtalálja azt az ajtót, be akarja törni, de kilép rajta a Bolond, aki azonnal távolabb viszi onnan a Parasztot</C-0>
+
+<C-P>(felháborodva) Mit mívelsz, Te! Én vagyok az!</C-P>
+<C-B>(suttogva) Pontosan tudom, ezért hozlak el onnan.</C-B>
+
+<C-0>A Bolond leveszi a sapkáját és idegesen összegyűri</C-0>
+
+<C-P>Erissz mán’ el, hallod-e! Hát a frászt hozod itten rám. Beszílj mi törtínt odabenn.</C-P>
+<C-B>Oda, te egyedül be nem teszed a lábad! Érted?</C-B>
+<C-P>Nem pont ezírt hívtá’? Hogy oda bé menjek, oszt szíjjel rúgjam az urak seg…</C-P>
+<C-B>Csitulj már, itt még a falnak is füle van!</C-B>
+<C-P>Bánja a rosseb, felőlem szeme es lehet. (beint neki)</C-P>
+<C-B>Hát csak azt akarod, hogy a Te fejedet is lecsapják?</C-B>
+
+<C-0>A Bolond a Paraszt mellkasához nyomja a sapkát, majd idegesen járkálni kezd a folyosón</C-0>
+
+<C-P>Én béjöttem most ide, készen arra hogy szemlítessek minden szennyet, mit az urak a nyakunkba zúdítottak. Emondom, hogy elíg volt most mán’ abbó’, hogy mindenünktő’ megfosztanak oszt utána, ha valaki fel es szólal ez ellen, azt azonna’ le es fejeztetik. Eztet köll elmondani az uraknok nem?</C-P>
+<C-B>Ezt, pontosan ezt, de nem egyedül. (szünetet tart) Az emberek? Gyülekeznek?</C-B>
+<C-P>Persze hogy! Azokat nem rémítette el a fejezés…</C-P>
+<C-B>Helyes…</C-B>
+
+<C-0>Hangos nevetés hallatszik ki a teremből</C-0>
+
+<C-P>Ejj de szípen es fog lángóni itten minden, amint a kintiek mögkapják a jelet. (magában nevet)</C-P>
+<C-B>Micsoda? Szó sem lehet arról, hogy felgyújtsuk a várat!</C-B>
+<C-P>Apád es szíp szóval próbákozott oszt mi lett a víge!</C-P>
+<C-B>Apám felhergelte a parasztokat, pont ahogyan most Te is! Ugyanolyanok vagytok…</C-B>
+<C-P>Te es ilyen vagy! Ez a közös vér, le sem tagadhatod…</C-P>
+<C-B>A népet akkor sem hergelni kell. Nyugton kell maradjanak, a lázongás csak ront a helyzeten.</C-B>
+<C-P>Menj ki hozzájok, oszt mondd el nekik Te, hogy várjanok türelemmel, míg az új adókat ki nem szabják. No persze! Mikó láttá mán’ olyat, hogy a királyt békével győzte mög valamirő’ a nép?</C-P>
+
+<C-0>Rövid hallgatás</C-0>
+
+<C-B>És ha most mégis összejönne így?</C-B>
+<C-P>Drága öcsém, kezdem úgy érezni, hogy eltántorodtál a céltól.</C-P>
+<C-B>A céltól nem, csak az eszköztől. Harcolni kell, de ésszel és mindenek feletti józansággal. Jól át kell gondolni, hogy mit csinálunk…</C-B>
+<C-P>Félek, itten a szép szónak kevís ereje van.</C-P>
+
+<C-0>Megint nevetés hallatszik ki a teremből, ami félbe szakítja a beszélgetést</C-0>
+
+<C-P>Ejj, de jól mulatnak mán’ ott benn a nagyságos urak. (hangosan zsémbelődve) Hogy akadno a torkán a falat mindnek…</C-P>
+<C-B>Bácsikám egy kicsit, csak egy egészen kicsikét halkíts magadon.</C-B>
+<C-P>Csak rájuk kéne gyútani a tetőt.</C-P>
+<C-B>Fuu basz… (elfojtja magában) Ha égne, akkor boldogabb lennél?</C-B>
+<C-P>Mindenképpen. És szabadabb.</C-P>
+<C-B>Mitől vagy olyan biztos abban, hogy nélkülük jobb lesz?</C-B>
+<C-P>Csak érzem. Ettől rosszabb mán’ amúgy se lehet. Meg különben es. Hogyan máshogy bosszúhatnám mög a tettiket. Fájjon neki mindenhogy az, amit a szegíny népivel, amit Velünk tett. Szembesűjjön azzal, hogy hogyan sínylődik a parasztság, oszt utána málljon le róla minden bőr és zsír…</C-P>
+
+<C-0>A király a teremből ordít ki a folyosóra</C-0>
+
+<C-K>Ejj te Bolond, hallom, hogy még mindig az ajtó előtt csörögeted a sapkád. Siess, hozzad már azt a levelet!</C-K>
+<C-B>Azok az urak benn, magasról tesznek arra, ami odakint van.</C-B>
+<C-P>Mit lepődsz meg azon, esztet eddig es tudtuk.</C-P>
+<C-B>(halkan a Paraszthoz) Tudom, de most valahogy…sokkal rosszabb a helyzet. Egyedül nem merlek beengedni oda. Várj meg itt!</C-B>
+
+<C-0>A Bolond sietős léptekkel indul el kifelé</C-0>
+
+<C-P>Oszt addeg mit csináljak?</C-P>
+
+<C-0>A Bolond visszafordul</C-0>
+
+<C-B>Mit tudom én…malmozz vagy bánom is én. Csak várd meg amíg visszaérek. (el)</C-B>
+
+<div class="scene-heading">Második jelenet</div>
+<C-0>Terem, középen hosszú megterített asztal, roskadásig telepakolva. A Király az asztalfőn, míg a két Nemes a jobbján és a balján falatoznak. Hangosan nevetnek</C-0>
+
+<C-K>(harsogva) És akkor így kiáltott – (elváltoztatott hangon) Kigyelmet! Kigyelmet felsíges királyom! – (ismét harsogva) Én meg lecsapattam a fejét.</C-K>
+<C-I>(dadogva) Milyen mulatságos történet!</C-I>
+<C-II>(túl hangosan nevetve) Jobban nem is rendelkezhetett volna Felséges uram! Szörnyű belegondolni, hogy milyen szerencsétlen lélekre utalhat az efféle beszéd.</C-II>
+<C-K>Az is volt! (teli szájjal folytatja) Ha legalább beszélni tudott volna, lehet, elgondolkodom, hogy meghagyom azt a nyamvadt életét. Vagy ha nem hergeli fel a drága népet. Olyan ostobaságokat mondott… (nevetve) Még hogy magasak az adók, na meg hogy nem engedem őket véleményt mondani.</C-K>
+<C-I>(dadogva) Szánalomra méltó a lény, mely még csak kifejezni sem tudja magát és mellé balgaságokat beszél.</C-I>
+<C-K>Aki nem beszéli tisztességesen a nyelvet, az nem is lehet tisztességes ember. Nem is értem, hogy az ilyennek hogyan lehet olyan fia, mint az én Bolondom…</C-K>
+<C-II>Ezt magam se mondhattam volna jobban.</C-II>
+<C-K>Hát persze, hogy nem mondhattad volna. Az én szavaimnál nincsen igazabb szólás.</C-K>
+<C-II>Természetesen Felség! Bocsájtson meg az én együgyű nyelvemnek! Olyan botorságok tudnak elsiklani rajta, kérem hadd kérjem az elnézését.</C-II>
+<C-K>(teli szájjal) Nem bánom, nem haragszom.</C-K>
+<C-II>Köszönöm Felséges úr! Maga olyan nagylelkű!</C-II>
+<C-I>(dadogva) Nincsen még egy ilyen rendkívüli erényekkel rendelkező lélek, aki egy ilyen nyelvbotlást íly könnyen megbocsájt.</C-I>
+<C-II>A számból vetted ki a szót drága barátom! (felé int a poharával)</C-II>
+<C-K>Jut is eszembe, hol bóklászik még mindig az az áldott jó Bolond? Olyan jól elszórakoztatott minket.</C-K>
+<C-II>Csodálatos tehetsége van a szavakkal való játékhoz.</C-II>
+<C-I>(dadogva) Felettébb szellemes egy fiú.</C-I>
+<C-K>Kár, hogy olyan alja családból származik… (tovább eszik, majd teli szájjal az ajtó felé int) Valamelyikőtök nézze már meg, hogy hol kujtorog még mindig azzal a levéllel.</C-K>
+
+<C-0>Mind a két Nemes felpattan a helyéről</C-0>
+
+<C-II>Igenis királyom!</C-II>
+<C-I>(dadogva) Igenis királyom!</C-I>
+<C-K>Bőven elég, ha csak az egyikőtök megy.</C-K>
+
+<C-0>Az I. Nemes az ajtóhoz siet, hogy megelőzze a II. Nemest. Amikor kinyitja az ajtót szinte azonnal vissza is zárja azt</C-0>
+
+<C-I>(dadogva) A Bolond sehol. Viszont egy jobbágy várakozik kint Felséges uram. Annak a lefejezett parasztnak a testvére…</C-I>
+<C-II>Minek ácsorog az ott? Tudtommal ide nem engednek be mindenféle topprongyos futóbolondot.</C-II>
+<C-I>(dadogva) Feltételezem, valami baja van.</C-I>
+<C-II>Ezeknek mindig csak bajuk van…</C-II>
+<C-I>(dadogva) Talán érdemes lenne meghallgatni azért. Hátha kivételesen most valamilyen jó hírrel hozakodott elő.</C-I>
+<C-II>Biztos, hogy ne…</C-II>
+<C-K>Eresszétek csak be, hátha megmulattat minket így vacsora közben.</C-K>
+<C-I>(dadogva) Már megbocsájtson Felség, de arra itt a Bolond…</C-I>
+<C-K>Az előbb még jót nevettél a parasztokon. Esetleg megkérdőjelezed a jó ízlésemet a tréfálkozás terén?</C-K>
+<C-I>(nagyon dadogva) Dehogyis Felséges úr, eszemben sincs! Végül is, ha családban marad az őrület, akkor ez is lehet olyan szórakoztató, mint a bolond…</C-I>
+<C-K>Akkor mire vársz még? Ereszd be a parasztot!</C-K>
+
+<div class="scene-heading">Harmadik jelenet</div>
+<C-0>Az I. Nemes kapkodva kinyitja az ajtót, majd betessékeli rajta a Parasztot.</C-0>
+
+<C-I>Tessék beljebb fáradni kedves jobbágyom!</C-I>
+
+<C-0>A Paraszt ellenkezik, de beljebb megy. Az I. Nemes majdnem fellöki, miközben elsiet mellette</C-0>
+
+<C-K>Szólj hát, jobbágy, ki Caltarif termékeny földjét munkálod, mivel fáradtál most elém?</C-K>
+<C-P>(meghajolva) Kigyelmes nagyuram!</C-P>
+
+<C-0>Visszafojtott nevetés</C-0>
+
+<C-P>Nem másirt vagyok most ett, mint hogy tikret tartsak kigyelmessíged ragyogú képe elé…</C-P>
+
+<C-0>Hangos nevetés</C-0>
+
+<C-II>(majd megfulladva a nevetéstől) Hogy mit csinálsz?</C-II>
+<C-P>Tán nem látják, hogy mennyi szenvedíst okoznak a magos adók?</C-P>
+<C-I>(dadogva nevetve) Magos adók…</C-I>
+<C-P>(feldúltan) A nípnek most mán’ elege van abbó’, hogy alig bírja eltartani magát, oszt ha szól es erről, azt mög se hallgatjók, a végin mög lefejezik azt, amely fő’ mert szólalni. Hát méges hogyan van ez felsíges király uram?</C-P>
+<C-K>Hát mégis hogy lenne? Úgy van minden ahogy lennie kell. Aki vétkezik, az büntetést kap. A testvéred rászolgált a sorsára, ha ezt pedzegeted.</C-K>
+<C-P>Egyík jobbágy sem irdemli azt a sorsot, azt az elnyomást, melyöt mink kapunk! Méges mióta lehetsíges az, hogy a teljes parasztságtó’ megvonják a gyülekezés jogát?</C-P>
+<C-K>Azóta, hogy olyan dolog miatt vonulnak ki, ami nincs ínyemre. Amióta valótlan dolgok miatt mernek háborogni.</C-K>
+<C-II>(az I. Nemeshez) Szinte el se hiszem, hogy igazad lett. Ritka alkalmak egyike,, hogy valami értelmes miatt nyílt ki a szád.</C-II>
+<C-I>(dadogva) Roppant kedves tőled ezt hallani…</C-I>
+<C-K>Elhallgassatok! Most nem a ti kelekótyaságotokon akarok mulatni!</C-K>
+<C-P>Mulatni?</C-P>
+<C-II>Nem csak suttyó, süket is vagy tán?</C-II>
+<C-P>Maga es az, ha nem teszi, amit a Felsígessíges király mond. De én kikérem magamnak nemes uram, hogy jómagam nem vagyok holmi suttyó…</C-P>
+<C-II>Milyen szavakra merészelted nyitni a szádat, Te, paraszt!?</C-II>
+<C-I>Azt mondja, nem suttyó…</C-I>
+<C-K>Érdekes egy figura vagy meg kell hagyni. Megkockáztatom, még a Bolondom őrültségeinél is jobban szórakoztat ez az egyszerű faragatlanságod és az a rengeteg valótlanság, amit beszélsz.</C-K>
+<C-P>A Bolondnál is jobban…</C-P>
+<C-K>Annál is.</C-K>
+<C-P>Az istenfáját, hát nem vagyok bolond! A valóságot mondom!</C-P>
+<C-K>Ezt figyeljétek, milyen goromba lett hirtelenjébe.</C-K>
+<C-I>Mint egy varangy, ami felfújja magát.</C-I>
+<C-K>Dehogy is, sokkal inkább…mint egy “poloska”! Az lesz az! Poloska. Ha belé taposol, bűzössé teszi a levegőt melynek illatját addig élvezted. Pont ahogy most ő is elrontja a vidámságot a csúf kis megjegyzéseivel.</C-K>
+<C-II>Pompás példa királyom! Mint a poloska, zseniális!</C-II>
+
+<C-0>A Király szólásra nyitja a száját, de a Paraszt közbevág</C-0>
+
+<C-P>Én es ember vagyok kigyelmes királyom! Nem tűröm az effíle mögaláztatást!</C-P>
+<C-K>Nem-e?</C-K>
+<C-P>A népe szenved! És most a törvíny ellenére es a vár falai alatt áll több száz paraszt, készen arra, hogy magára gyútsák az egísz világot.</C-P>
+
+<C-0>A Nemesek ledermednek, nem mernek megszólalni. A Király néhány pillanatig meredten bámul a Parasztra, majd hisztérikus nevetésbe tör ki. Se a Nemesek, se a Paraszt nem érti, hogy mi történik</C-0>
+
+<C-K>Ezt szeretem a Bolondban is! Olyan képtelenségeket tud mondani. Még hogy szenvednek, még hogy gyülekeznek. (tébolyultan nevet) Meg van tiltva! Hát elfelejtetted tán, hogy pont a te testvéredet szabadítottam meg attól az átkozottul sokat gondolkodó fejétől? Addig-addig ugrált, míg miatta be nem kellett tiltanom ezt a fajta vad népi összefogást. Az én országomban mindenki jól él. Ha valaki miatt elnyomva érzik magukat azt egyedül a te drága, sokat mondó testvérednek köszönhetik.</C-K>
+
+<C-0>A Király dühösen fordul a nemesekhez, amiért azok nem nevetnek vele együtt, mire azok bátortalanul és erőltetetten nevetni kezdenek. Erre a Király megakad</C-0>
+
+<C-K>Ti, “zsirporos nyaloncok”, hát nem szórakoztok jól a paraszton? Nem tetszik, amit elétek tárok? Értetek csinálom, nevessetek tiszta szívetekből!</C-K>
+<C-P>No de ez mán’ mígis csak pofátlanság!</C-P>
+<C-K>Micsoda szemtelenség! Mond csak, paraszt, mit szólnál ahhoz, ha itt helybe a fejedet venném?</C-K>
+<C-P>Nem igazán lepődnék mög rajta… Szokása az úrnak a feszólaló parasztokat fejüktő’ mögszabadítani.</C-P>
+<C-K>(A II. Nemeshez fordulva) Üsd le a fejét!</C-K>
+<C-II>Ahogy parancsolja Felség!</C-II>
+<C-P>Ne, ne! Kigyelmet kérek! Kigyelmezzen rajtam felsíges királyom!</C-P>
+
+<C-0>A Király hangosan nevetni kezd, II. Nemes megáll félúton, majd megszakad a nevetéstől és az I. nemes is jót nevet rajta</C-0>
+
+<C-K>Örülj, paraszt, mert királyod hallja a te szódat! (tovább nevet)</C-K>
+
+<div class="scene-heading">Negyedik jelenet</div>
+<C-0>A Bolond belép a trónterembe, kezében a levéllel, a nevetés kicsit elhalkul</C-0>
+
+<C-B>“Dicsőséges nagyurak, hát hogy vagytok?”</C-B>
+<C-K>Pont időben érkeztél, Bolond!</C-K>
+<C-B>(a Parasztra néz) Szerintem kissé későn.</C-B>
+<C-K>Igaz is. Mégis lemaradtál valamiről.</C-K>
+<C-B>Csak nem? (teátrálisan sóhajtva) Oh, minő rút idők járnak ránk.</C-B>
+
+<C-0>Újra a Parasztra néz majd meglengeti a levelet</C-0>
+
+<C-K>Ne hüledezz annyira, inkább add azt a levelet gyorsan.</C-K>
+
+<C-0>A király olvasni kezdi a levelet</C-0>
+
+<C-B>Kissé fülledt itt benn a levegő…</C-B>
+<C-K>Urak, nyissunk egy ablakot.</C-K>
+<C-B>Nem szükséges az! Még a végén önök is meghűlnek a kinti háborgó időtől…</C-B>
+<C-I>(dadogva) Vihar van kint?</C-I>
+<C-B>(dadogva) De még mekkora. Csak úgy tombol fékezhetetlen dühében.</C-B>
+<C-I>(dadogva) Gúnyolódsz rajtam?</C-I>
+<C-B>(dadogva) Próbálok a nyelveden szólni, úgy hátha megért a nagyságos uram.</C-B>
+<C-I>Szemtelen fráter! Ha az enyém lennél, kivágatnám a (nagyon dadogva) nyelved.</C-I>
+<C-B>Egy metszés lehet kegyelmességednek sem ártana. Bár ahogy elnézem. (lenéz az asztal alá) Ezen lehet, már túl is vagyunk.</C-B>
+
+<C-0>Paraszt magába fojtva halkan nevet. Az I. Nemes sértetten felpattan a székéből</C-0>
+
+<C-II>Királyom, ez a bolond zseniális!</C-II>
+<C-K>Tudom.</C-K>
+<C-B>Királyom, ez a bolond zseniális!</C-B>
+<C-K>Haha, ezt is tudom, ezért tartom.</C-K>
+<C-II>Hogy én bolond?</C-II>
+<C-B>Nem tudja tán, hogy az?</C-B>
+<C-II>Ez kész tény, hogy nem vagyok ütődött!</C-II>
+<C-B>A bölcs ember tudja magáról, hogy bolond, de aki bölcsnek tartja magát az valójában… Hogy is van ez felséges uram? (meghajol a Paraszt felé)</C-B>
+<C-P>Az valójában bolond!</C-P>
+<C-B>Áh, igen, ez lesz az! (visszafordulva az asztalhoz) Maga kérem bolond, a legsötétebb tenger fenekével megegyező mélységgel tisztelt nemes uram.</C-B>
+<C-II>Felség, ez a lator gúnyt mer űzni a feljebbvalóiból. Ez…</C-II>
+<C-K>Ez a dolga.</C-K>
+<C-II>De…</C-II>
+<C-K>Küld el akkor.</C-K>
+<C-B>Hajrá bolond!</C-B>
+<C-II>(habozik) Takarodj! Ne is lássam azt az ostoba képed!</C-II>
+
+<C-0>A Bolond hátat fordít nekik, majd nagy mozdulattal előre hajol. A Paraszt jót nevet rajta, az I. Nemes a II. Nemesbe kapaszkodva hüledezik</C-0>
+
+<C-II>Orcátlanság!</C-II>
+
+<C-0>A Király eddig olvasta a levelet, majd hirtelen dühösen az asztalra csap</C-0>
+
+<C-K>Hogy merészeli!? Az a legalja, senkiházi, tökmag király… Mégis, hogy van képe harmadjára is hadüzenetet küldeni Nekem? Nekem, aki mindenekben felette áll?</C-K>
+<C-B>Harmadjára? És eddig nem reagált rá?</C-B>
+<C-P>Há’ tényleg ilyen magasró’ tesz arra, hogy mi van az országáva’?(?) És ti urak, ti csak hallgattok?</C-P>
+<C-K>Te elhallgass, örülj, hogy eddig nem csaptam le a fejed.</C-K>
+<C-II>Uram, nem kéne inkább kiküldenünk őket? Ez nem az ilyen alja népekre tartozik.</C-II>
+<C-I>(dadogva) Ráadásul tudjuk, milyen lázongó családnak a fattyai ezek. Mi van, ha most amikor békére lenne szükség, fellázítanák a parasztokat…</C-I>
+<C-K>Ti is némuljatok el, a saját gondolataimat nem hallom tőletek.</C-K>
+<C-B>Uram, hallgasson meg, mert nagy baj van.</C-B>
+<C-K>Mondd már!</C-K>
+<C-B>A parasztság felfegyverkezve gyülekezik a vár kapujában. Tombolnak.</C-B>
+
+<C-0>A Nemesek felhördülnek</C-0>
+
+<C-K>Nagyon helyes! Meg kell védeniük az országot!</C-K>
+<C-P>Mög egy nagy frászt! Mink nem fogunk egy olyan országé’ harcolni, mely a lelkünket es leadóztatja oszt kivégezteti azt, aki főszólal ellene, a végin meg megtiltja nekik a...</C-P>
+<C-B>Királyom, lássa meg a valóságot. A nép ön ellen lázad.</C-B>
+<C-K>Azt hittem, csak viccelsz amikor a háborgásról beszéltél…</C-K>
+<C-P>Nem viccelt az!</C-P>
+
+<C-0>A Bolond leinti</C-0>
+
+<C-B>“Föltámadott a tenger” felséges uram, és készen áll elnyelni mindent, ami ártott neki.</C-B>
+<C-K>Ártott neki!?</C-K>
+<C-B>Igen, ártott!</C-B>
+<C-K>Na ebből elég legyen! A parasztok nem gyülekeznek, megtiltottam nekik. Hazudsz és ez egyáltalán nincs ínyemre. Tudom, hogy mindezt csak azért mondod, mert nem tudod elviselni, hogy az apád egy senkiházi suttyó volt, akit jogosan fejeztem le!</C-K>
+
+<C-0>A Bolond hirtelen leveszi a sapkáját és egészen az asztalig megy</C-0>
+
+<C-B>(dühösen) Ezt nem csak apám miatt mondom!</C-B>
+<C-P>Ne csináld, hallod-e!</C-P>
+<C-K>Te csak egy bolond vagy! Fogalmad sincs arról, hogy mire van szüksége az embereknek. Némulj el!</C-K>
+<C-B>Nem! Nem fogok csendben maradni! Elég volt most már! “ Tudjátok-e, mennyit kértünk Titeket, hogy irántunk emberiek legyetek!? Vegyetek be az emberek sorába… Rimánkodott a szegény nép, s hiába. Állatoknak tartottátok a népet; hát ha most mint állat fizet tinéktek.” Ne lepődjenek meg… Én idáig a béke híve voltam. Magamat, őt (a Parasztra mutat) és a népet is csak csitítottam, de most itt állok, és végre már én is fennhangon mondom, hogy vond vissza a megduplázott adókat, s a szabadságát add vissza e meggyötört raboknak. Elég volt most már, ti dicsőséges nagyurak! Hadd legyen biztonságban minden ember az országban, senkit se bántsanak azért, mert kimondja azt, amit gondol! A parasztokat békítsd meg uram! Ez most a legfontosabb! Hol boldog a nép, ott boldog az ország is, és ha kell akkor mindegyik önként vonul a haza védelmére. De előbb add vissza a szabadságukat és enged el az adókat és hagyd, hogy mindannyian szabadon szóljanak.</C-B>
+<C-K>Takarodj a szemem elől…</C-K>
+<C-P>Fulladjon bele mind abba a szennybe, amit magára hozott! Hát vegye mán’ észre, hogy mennyi életet tönkretett!</C-P>
+<C-K>Döntöttem. (a Nemesekhez) Ti ott! Hajnalban indulunk és amely férfi, nem jelenik meg a seregben, az halálnak halálával fog lakolni! Ezt a két bolondot pedig most azonnal tüntessétek el előlem!</C-K>
+
+<C-0>A Nemesek elkezdik kirángatni a Parasztot és a Bolondot a teremből</C-0>
+
+<C-B>(visszakiáltja) Hát ennyit ér magának az ország!?</C-B>
+<C-K>Ennyit, pontosan ennyit! És tudod mit? Te valóban bolond vagy, ha azt hiszed, hogy egy ilyen kérdésben egy lázadó fiát és testvérét, két bolondot fogok meghallgatni!</C-K>
+
+<div class="scene-heading">Ötödik jelenet</div>
+<C-0>A folyosón</C-0>
+
+<C-P>Gondolom nem erre számítottál.</C-P>
+
+<C-0>A Bolond csak a fejét ingatja</C-0>
+
+<C-P>Legalább megpróbáltuk.</C-P>
+<C-B>Ez nem elég…</C-B>
+<C-P>Most már látjuk, hogy mit kell tennünk.</C-P>
+<C-B>Valóban?</C-B>
+<C-P>Rá köll gyújtani a várat. A nép végre kitombolja magát, megszabadulunk a zsarnoktól és új esélyt kapunk arra, hogy egy jobb uralkodót válasszunk magunknak.</C-P>
+<C-B>És a hadüzenet?</C-B>
+<C-P>Talán pont erre van szükségünk. A külső segítségre.</C-P>
+<C-B>Nem!</C-B>
+<C-P>Honnét tudod, hogy nem lenne jó? Az a király híresen jól bánik a népével.</C-P>
+<C-B>Az itteni embereknek saját szabadság és saját uralkodó kell, nem egy hódító!</C-B>
+
+<C-0>Csend</C-0>
+
+<C-P>És szerinted, köztünk lenne olyan, aki nem nyomná el a népet?</C-P>
+<C-B>Talán…csak meg kell találni.</C-B>
+
+<C-0>Rövid hallgatás, a Bolond visszaveszi a sapkáját</C-0>
+
+<C-P>Sürget az idő, mit mondasz, mi legyen?</C-P>
+<C-B>Azt, amit az elején is kellett volna… Hadd égjen…</C-B>
+
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const characterMap = {
+        'C-K': 'KIRALY',
+        'C-P': 'PARASZT',
+        'C-B': 'BOLOND',
+        'C-I': 'I-NEMES',
+        'C-II': 'II-NEMES',
+        'C-0': 'NARRATION_ACTION' // Új kód a narrációkhoz
+    };
+
+    const fullCharacterNames = {
+        'KIRALY': 'KIRÁLY',
+        'PARASZT': 'PARASZT',
+        'BOLOND': 'BOLOND',
+        'I-NEMES': 'I. NEMES',
+        'II-NEMES': 'II. NEMES',
+        'NARRATION_ACTION': '' // A narrációknak nincs neve, üres string
+    };
+
+    Object.keys(characterMap).forEach(tag => {
+        const elements = document.getElementsByTagName(tag);
+        Array.from(elements).forEach(el => {
+            const characterClass = characterMap[tag];
+            const originalText = el.innerHTML;
+            const fullCharName = fullCharacterNames[characterClass];
+
+            // Utasítások formázása (zárójelben)
+            const formattedText = originalText.replace(/\(([^)]*)\)/g, '<span class="instruction-in-text">($1)</span>');
+
+            let newElement;
+
+            if (characterClass === 'NARRATION_ACTION') {
+                newElement = document.createElement('div');
+                newElement.classList.add('narration-line');
+                newElement.innerHTML = `
+                    <div class="narration-label"></div> <div class="narration-text-content">${formattedText}</div>
+                `;
+            } else {
+                newElement = document.createElement('div');
+                newElement.classList.add('dialogue-line', `character-${characterClass}`);
+                newElement.innerHTML = `
+                    <div class="character-name-wrapper">${fullCharName}:</div>
+                    <div class="character-text-wrapper">${formattedText}</div>
+                `;
+            }
+            el.parentNode.replaceChild(newElement, el);
+        });
+    });
+
+    // Az "Ég veled, király!" és "Szereplők:" bevezetők maradnak p tag-ek
+    // A scene-heading már div, az is marad
+
+});
+</script>
+</html>
