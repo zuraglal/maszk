@@ -33,13 +33,13 @@ body {
 
 /* Szereplő specifikus színek */
 .character-RITA .character-name-wrapper,
-.character-RITA .character-text-wrapper { color: #E6E6FA; } /* Lavender */
+.character-RITA .character-text-wrapper { color: #FFB6C1; } /* LightPink */
 
-.character-VANDA .character-name-wrapper,
-.character-VANDA .character-text-wrapper { color: #F08080; } /* LightCoral */
+.character-ISKOLAS_VANDA .character-name-wrapper,
+.character-ISKOLAS_VANDA .character-text-wrapper { color: #DA70D6; } /* Orchid */
 
-.character-ADAM .character-name-wrapper,
-.character-ADAM .character-text-wrapper { color: #20B2AA; } /* LightSeaGreen */
+.character-ISKOLAS_ADAM .character-name-wrapper,
+.character-ISKOLAS_ADAM .character-text-wrapper { color: #90EE90; } /* LightGreen */
 
 .character-FELNOTT_VANDA .character-name-wrapper,
 .character-FELNOTT_VANDA .character-text-wrapper { color: #DDA0DD; } /* Plum */
@@ -47,12 +47,11 @@ body {
 .character-FELNOTT_ADAM .character-name-wrapper,
 .character-FELNOTT_ADAM .character-text-wrapper { color: #5F9EA0; } /* CadetBlue */
 
-.character-VANDA_ADAM .character-name-wrapper, /* Vanda / Ádám közös sor */
-.character-VANDA_ADAM .character-text-wrapper { color: #FFFFFF; } /* Fehér */
+.character-ISKOLAS_VANDA_ISKOLAS_ADAM .character-name-wrapper, /* Iskolás Vanda / Iskolás Ádám közös sor */
+.character-ISKOLAS_VANDA_ISKOLAS_ADAM .character-text-wrapper { color: #FFD580; } /* LightOrange */
 
 .character-FELNOTT_ADAM_FELNOTT_VANDA .character-name-wrapper, /* Felnőtt Ádám / Felnőtt Vanda közös sor */
-.character-FELNOTT_ADAM_FELNOTT_VANDA .character-text-wrapper { color: #FFFFFF; } /* Fehér */
-
+.character-FELNOTT_ADAM_FELNOTT_VANDA .character-text-wrapper { color: #FFD580; } /* LightOrange */
 
 /* Narráció stílusok */
 .narration-line {
@@ -136,8 +135,8 @@ body {
 <p class="title-narration">Wolff Nikoletta</p>
 <p class="title-narration">Anya, ég a rántott hús!</p>
 <p class="character-list-narration">Rita		Egyetemi tanár. Vanda és Ádám édesanyja.</p>
-<p class="character-list-narration">Vanda	 	 Iskolás.</p>
-<p class="character-list-narration">Ádám		 Iskolás.</p>
+<p class="character-list-narration">Iskolás Vanda</p>
+<p class="character-list-narration">Iskolás Ádám</p>
 <p class="character-list-narration">Felnőtt Vanda	 Kirúgott egyetemi tanár. Időutazó.</p>
 <p class="character-list-narration">Felnőtt Ádám	 Pillangó kutató.</p>
 
@@ -181,63 +180,63 @@ body {
 <C-0>Felnőtt Ádám hozzá akar valamihez nyúlni.</C-0>
 <C-FV>Nem érhetünk semmihez! Mindent úgy kell hagyni, ahogy találtuk!</C-FV>
 <C-0>Ádám fut be, nevet, egy plüss medve van nála. Vanda fut utána.</C-0>
-<C-V>Adod ide, maci medve mamát.</C-V>
-<C-A>Ez egy hülye név!</C-A>
-<C-V>Te vagy a hülye!</C-V>
-<C-A>Nem, te!</C-A>
+<C-IV>Adod ide, maci medve mamát.</C-IV>
+<C-IA>Ez egy hülye név!</C-IA>
+<C-IV>Te vagy a hülye!</C-IV>
+<C-IA>Nem, te!</C-IA>
 <C-0>Vanda elkezd Ádám felé futni. Ádám sikít és a medvét szorítja magához. Felnőtt Vanda tapsol egyet, mire Ádám és Vanda megfagynak.</C-0>
 <C-FA>Látod, az én életem tele volt rettegéssel és szörnyűségekkel.</C-FA>
 <C-FV>(cinikusan) Nagyon sajnállak!... Na pörgessünk bele.</C-FV>
 <C-0>Felnőtt Vanda elkezdi az ujját pörgetni. Vanda elkapja Ádámot, majd bejön Rita egy dobozzal. Felnőtt Vanda újra tapsol.</C-0>
 <C-R>Ne ma öljétek meg egymást! Majd, ha az apátok hazaért.</C-R>
 <C-0>Rita köhög. Felnőtt Ádám előrelép Rita felé, de Felnőtt Vanda elkapja a karjánál.</C-0>
-<C-V>Nem akarok hazaköltözni!</C-V>
-<C-A>Nekem mindegy! De éhes vagyok!</C-A>
-<C-V>Mindig éhes vagy!</C-V>
-<C-A>És akkor mi van?</C-A>
+<C-IV>Nem akarok hazaköltözni!</C-IV>
+<C-IA>Nekem mindegy! De éhes vagyok!</C-IA>
+<C-IV>Mindig éhes vagy!</C-IV>
+<C-IA>És akkor mi van?</C-IA>
 <C-FA>Látod, ezért lettem ilyen nagy és erős!</C-FA>
 <C-FV>Hát persze.</C-FV>
 <C-R>(fáradtan) Most ettél Ádám! Inkább pakold össze a játékaidat, addig se gondolsz arra, hogy éhes vagy.</C-R>
-<C-A>Ez kínzás!</C-A>
+<C-IA>Ez kínzás!</C-IA>
 <C-R>Hát akkor vigyenek el a rendőrök! Mit nem adnék egy kis csöndért!</C-R>
-<C-A>Érzem, ahogy elsorvadnak a szerveim.</C-A>
+<C-IA>Érzem, ahogy elsorvadnak a szerveim.</C-IA>
 <C-R>Drágám, egy órája ettünk.</C-R>
-<C-V>Én is érzem! Micsoda kín!</C-V>
+<C-IV>Én is érzem! Micsoda kín!</C-IV>
 <C-0>Ádám és Vanda egymásra rogynak és az ég felé nyúlnak.</C-0>
-<C-A>Nagymama te vagy az?</C-A>
+<C-IA>Nagymama te vagy az?</C-IA>
 <C-R>Na, ő biztos nem, mert az előbb hívott fel, hogy adjon pár tanácsot, ami inkább parancsnak hangzott. Szóval ő még él és virul.</C-R>
-<C-V>Nem akarok hazaköltözni!</C-V>
+<C-IV>Nem akarok hazaköltözni!</C-IV>
 <C-0>Rita köhög.</C-0>
 <C-R>Ne kezdjük már ezt megint! Holnap jönnek a szállítók, addigra legyen minden összepakolva, vagy különben ti is a bútorokkal utaztok.</C-R>
-<C-A>Komolyan? Mindig is akartam egy kamionban utazni!</C-A>
-<C-V>Veszélyesen hangzik!</C-V>
-<C-A>Mert unalmas vagy!</C-A>
+<C-IA>Komolyan? Mindig is akartam egy kamionban utazni!</C-IA>
+<C-IV>Veszélyesen hangzik!</C-IV>
+<C-IA>Mert unalmas vagy!</C-IA>
 <C-FA>Tényleg az vagy!</C-FA>
 <C-FV>Tekerjünk!</C-FV>
 <C-0>Felnőtt Vanda elkezdi az ujját pörgetni. Vanda, Rita, Ádám kimegy, majd újra bejönnek. Leülnek a földre és Rita mutat egy rajzot a gyerekeknek. Felnőtt Vanda újra tapsol.</C-0>
-<C-A>Mikor lesz kész a rántott hús?</C-A>
-<C-V>Maradj már! Olyan hülye vagy!</C-V>
-<C-A>Te vagy hülye!</C-A>
+<C-IA>Mikor lesz kész a rántott hús?</C-IA>
+<C-IV>Maradj már! Olyan hülye vagy!</C-IV>
+<C-IA>Te vagy hülye!</C-IA>
 <C-R>Nemsokára! Már sül!</C-R>
-<C-V>Mi ez?</C-V>
+<C-IV>Mi ez?</C-IV>
 <C-R>Időutazás.</C-R>
-<C-A>Időutazásost fogunk játszani?</C-A>
+<C-IA>Időutazásost fogunk játszani?</C-IA>
 <C-R>Jó is lenne, ha játék lenne.</C-R>
-<C-V>Miért akarnál visszamenni a múltba? Azt hittem, sose leszek tíz éves.</C-V>
-<C-A>Alig várom, hogy felnőtt legyek!</C-A>
+<C-IV>Miért akarnál visszamenni a múltba? Azt hittem, sose leszek tíz éves.</C-IV>
+<C-IA>Alig várom, hogy felnőtt legyek!</C-IA>
 <C-FA>Na, ezt visszaszívom!</C-FA>
 <C-FV>Bárcsak így érezhetnék megint!</C-FV>
 <C-FA>Hogy az idő nem számít?</C-FA>
 <C-FV>Hogy az idő nem számít!</C-FV>
 <C-R>Erről senkinek se mesélhettek! Ez a mi kis titkunk lesz, jó!?</C-R>
-<C-V>Miért akarnánk? Csak bolondnak tartanának minket!</C-V>
-<C-A>Én akarok! Én mindenkinek el akarom mondani!</C-A>
+<C-IV>Miért akarnánk? Csak bolondnak tartanának minket!</C-IV>
+<C-IA>Én akarok! Én mindenkinek el akarom mondani!</C-IA>
 <C-0>Rita összehajtja a lapot.</C-0>
 <C-R>Na, menjetek pakolni!</C-R>
-<C-V>De-</C-V>
+<C-IV>De-</C-IV>
 <C-R>Nincs de!</C-R>
-<C-V>(Ádámnak) Ez a te hibád!</C-V>
-<C-A>Ez hogy az én hibám?</C-A>
+<C-IV>(Ádámnak) Ez a te hibád!</C-IV>
+<C-IA>Ez hogy az én hibám?</C-IA>
 <C-FA>Igaza van a kicsi énemnek!</C-FA>
 <C-0>Ádám és Vanda kimennek. Rita egy dobozba rakja a tervrajzot majd kimegy. Felnőtt Vanda odaugrik a dobozhoz és elkezdi kipakolni.</C-0>
 <C-FV>Kivi-magozó gépezet.</C-FV>
@@ -292,29 +291,29 @@ body {
 <C-FV>Na, ne haragudj!</C-FV>
 <C-0>Felnőtt Vanda nekidől felnőtt Ádámnak.</C-0>
 <C-FA>Én arra emlékszem, ahogy anya fel-alá rohangált, és kiabált, hogy „angolul nem tanultok meg, a magyart elfelejtitek, és két néma gyerekem lesz a végén!”.</C-FA>
-<C-V>Minek ezt megcsinálni, ha úgy is hazamegyünk?</C-V>
-<C-A>Ki érti a felnOtteket?</C-A>
-<C-V>Felnőtteket.</C-V>
-<C-A>O!</C-A>
-<C-V>Ő!</C-V>
-<C-A>Ö!</C-A>
-<C-V>Ő!</C-V>
-<C-A>Hagyjál békén! Hülye betuk.</C-A>
-<C-V>Betűk!</C-V>
-<C-A>Tök mindegy!</C-A>
-<C-V>Ki fognak nevetni otthon, ha nem tudod a magyar abc-t.</C-V>
-<C-A>És? Ők tudják az angolt vagy a németet?</C-A>
+<C-IV>Minek ezt megcsinálni, ha úgy is hazamegyünk?</C-IV>
+<C-IA>Ki érti a felnOtteket?</C-IA>
+<C-IV>Felnőtteket.</C-IV>
+<C-IA>O!</C-IA>
+<C-IV>Ő!</C-IV>
+<C-IA>Ö!</C-IA>
+<C-IV>Ő!</C-IV>
+<C-IA>Hagyjál békén! Hülye betuk.</C-IA>
+<C-IV>Betűk!</C-IV>
+<C-IA>Tök mindegy!</C-IA>
+<C-IV>Ki fognak nevetni otthon, ha nem tudod a magyar abc-t.</C-IV>
+<C-IA>És? Ők tudják az angolt vagy a németet?</C-IA>
 <C-0>Felnőtt Vanda és Felnőtt Ádám Vanda és Ádám mögé áll.</C-0>
 <C-FA>Nagyon utáltam ezt az egészet!</C-FA>
 <C-FV>De most milyen szépen mondod a magánhangzóidat!</C-FV>
 <C-FA>Kár, hogy állásinterjúkon nem az ABC-t mondtatják fel velem.</C-FA>
 <C-FV>Biztos vagyok benne, hogy nagy lenne a sikered!</C-FV>
-<C-A>Apa azt mondta, hogy otthon annyi mákot esznek a gyerekek, hogy beállnak tőle.</C-A>
-<C-V>Ez biztos, hogy nem igaz!</C-V>
-<C-A>És a tanárok is beállnak, és mindennap felelnek a diákok, és aki rosszul tudja, az állva marad.</C-A>
-<C-V>Ez se lehet igaz!</C-V>
-<C-A>És nincs csendespihenő!</C-A>
-<C-V>Ez lehet igaz!</C-V>
+<C-IA>Apa azt mondta, hogy otthon annyi mákot esznek a gyerekek, hogy beállnak tőle.</C-IA>
+<C-IV>Ez biztos, hogy nem igaz!</C-IV>
+<C-IA>És a tanárok is beállnak, és mindennap felelnek a diákok, és aki rosszul tudja, az állva marad.</C-IA>
+<C-IV>Ez se lehet igaz!</C-IV>
+<C-IA>És nincs csendespihenő!</C-IA>
+<C-IV>Ez lehet igaz!</C-IV>
 <C-FA>Emlékszel, az milyen jó is volt! Ebéd után mindig volt egy óra csendes pihenő, amikor mindenki olvasott.</C-FA>
 <C-FV>De a bioszt már otthon szeretted meg!</C-FV>
 <C-FA>Klári néni. Mindenki félt tőle! Csak engem szeretett!</C-FA>
@@ -323,17 +322,17 @@ body {
 <C-FV>Mármint Klári néninek?</C-FV>
 <C-FA>Viccesnek hiszed magadat?</C-FA>
 <C-0>Vanda elveszi a lapot Ádámtól.</C-0>
-<C-V>Ne pillangókat rajzolgass!</C-V>
-<C-A>Sajátos megoldó képletet használok! Vizuális típus vagyok!</C-A>
+<C-IV>Ne pillangókat rajzolgass!</C-IV>
+<C-IA>Sajátos megoldó képletet használok! Vizuális típus vagyok!</C-IA>
 <C-0>Vanda elveszi Ádámtól a lapot.</C-0>
-<C-V>Normális vagy? Ez anya tervrajza!</C-V>
-<C-A>Azt mondta, hogy nem kell neki!</C-A>
+<C-IV>Normális vagy? Ez anya tervrajza!</C-IV>
+<C-IA>Azt mondta, hogy nem kell neki!</C-IA>
 <C-FV>Az kell nekünk!</C-FV>
-<C-V>Nem hiszek neked! ANYA!</C-V>
-<C-A>Komolyan nem hiszel nekem?</C-A>
-<C-V>ANYA!</C-V>
-<C-A>Hát jó!</C-A>
-<C-VA>ANYA!</C-VA>
+<C-IV>Nem hiszek neked! ANYA!</C-IV>
+<C-IA>Komolyan nem hiszel nekem?</C-IA>
+<C-IV>ANYA!</C-IV>
+<C-IA>Hát jó!</C-IA>
+<C-IVIA>ANYA!</C-IVIA>
 <C-0>Vanda és Ádám kimennek. Felnőtt Vanda felemeli a lapot.</C-0>
 <C-FV>Nem értem!</C-FV>
 <C-FA>Talán nem vagy olyan okos, mint gondolod, hogy vagy.</C-FA>
@@ -378,15 +377,15 @@ body {
 <C-0>Felnőtt Vanda megöleli Ritát és Felnőtt Ádámot.</C-0>
 <C-R>(elérzékenyül) Holnap jönnek a szállítók. Sok dolgom van még!</C-R>
 <C-0>Felnőtt Vanda és Ádám hátralépnek. Gyerek Ádám fut be.</C-0>
-<C-A>Anya, ég a rántott hús!</C-A>
+<C-IA>Anya, ég a rántott hús!</C-IA>
 <C-R>(hátranéz a felnőtt Vandára és Ádámra) Néha hagyni kell elégni a dolgokat!</C-R>
 <C-FA>Azt hittem, hogy nem lát minket.</C-FA>
 <C-FV>Lehet, a dimenzióban nyitottunk egy kaput anzal, hogy megöleltük.</C-FV>
-<C-A>De anya!... Mit nézel?</C-A>
+<C-IA>De anya!... Mit nézel?</C-IA>
 <C-R>Semmit, drága semmit. Majd később megnézem!</C-R>
-<C-A>De hát most ég!</C-A>
+<C-IA>De hát most ég!</C-IA>
 <C-0>Vanda fut be.</C-0>
-<C-V>Lángol a konyha!</C-V>
+<C-IV>Lángol a konyha!</C-IV>
 <C-R>Micsoda?</C-R>
 <C-0>Rita, Vanda és Ádám elfutnak.</C-0>
 <C-FV>Ideje menni!</C-FV>
@@ -433,23 +432,23 @@ body {
 document.addEventListener('DOMContentLoaded', function() {
     const characterMap = {
         'C-R': 'RITA',
-        'C-V': 'VANDA',
-        'C-A': 'ADAM',
+        'C-IV': 'ISKOLAS_VANDA',
+        'C-IA': 'ISKOLAS_ADAM',
         'C-FV': 'FELNOTT_VANDA',
         'C-FA': 'FELNOTT_ADAM',
-        'C-VA': 'VANDA_ADAM', // Vanda / Ádám
+        'C-IVIA': 'ISKOLAS_VANDA_ISKOLAS_ADAM', // Iskolás Vanda / Iskolás Ádám
         'C-FAFV': 'FELNOTT_ADAM_FELNOTT_VANDA', // Felnőtt Ádám / Felnőtt Vanda
         'C-0': 'NARRATION_ACTION'
     };
 
     const fullCharacterNames = {
         'RITA': 'Rita',
-        'VANDA': 'Vanda',
-        'ADAM': 'Ádám',
-        'FELNOTT_VANDA': 'Felnőtt Vanda',
-        'FELNOTT_ADAM': 'Felnőtt Ádám',
-        'VANDA_ADAM': 'Vanda / Ádám',
-        'FELNOTT_ADAM_FELNOTT_VANDA': 'Felnőtt Ádám / Felnőtt Vanda',
+        'ISKOLAS_VANDA': 'I. Vanda',
+        'ISKOLAS_ADAM': 'I. Ádám',
+        'FELNOTT_VANDA': 'F. Vanda',
+        'FELNOTT_ADAM': 'F. Ádám',
+        'VANDA_ADAM': 'I. Vanda / I. Ádám',
+        'FELNOTT_ADAM_FELNOTT_VANDA': 'F. Ádám / F. Vanda',
         'NARRATION_ACTION': ''
     };
 
