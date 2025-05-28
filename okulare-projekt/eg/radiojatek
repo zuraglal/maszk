@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rádiójáték Formázása</title>
+<style>
+body {
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+    margin: 20px;
+    line-height: 1.6; /* Kicsit több térköz a sorok között */
+}
+.dialogue-line {
+    display: flex;
+    margin-bottom: 8px;
+    align-items: flex-start; /* A szöveg tetejéhez igazítás */
+}
+.character-name-wrapper {
+    /* Szereplő neve oszlopának stílusa */
+    flex-basis: 100px; /* Alap méret, kicsit növelve */
+    max-width: 120px; /* Maximális szélesség */
+    text-align: right;
+    padding-right: 10px; /* Kisebb belső térköz */
+    flex-shrink: 0; /* Ne zsugorodjon össze, ha nincs elég hely */
+    font-weight: bold;
+}
+.character-text-wrapper {
+    /* Szöveg oszlopának stílusa */
+    flex-grow: 1; /* Töltse ki a maradék helyet */
+    text-align: left;
+    padding-left: 5px; /* Kisebb belső térköz */
+}
+
+/* Character colors */
+.character-OLIVER .character-name-wrapper,
+.character-OLIVER .character-text-wrapper { color: #E0FFFF; } /* LightCyan */
+.character-BENJAMIN .character-name-wrapper,
+.character-BENJAMIN .character-text-wrapper { color: #FAFAD2; } /* LightGoldenrodYellow */
+.character-POLYA_NENI .character-name-wrapper,
+.character-POLYA_NENI .character-text-wrapper { color: #D8BFD8; } /* Thistle */
+.character-TAKARO_NENI .character-name-wrapper,
+.character-TAKARO_NENI .character-text-wrapper { color: #B0C4DE; } /* LightSteelBlue */
+.character-GASPAR_BACSI .character-name-wrapper,
+.character-GASPAR_BACSI .character-text-wrapper { color: #FFA07A; } /* LightSalmon */
+
+/* Narráció stílusok */
+.narration-line {
+    display: flex;
+    margin-bottom: 8px;
+}
+.narration-label {
+    flex-basis: 100px; /* Ugyanaz a méret, mint a név oszlop */
+    max-width: 120px;
+    text-align: right;
+    padding-right: 10px;
+    flex-shrink: 0;
+    font-style: italic;
+    color: white; /* Fehér szín */
+}
+.narration-text-content {
+    flex-grow: 1;
+    text-align: left;
+    padding-left: 5px;
+    font-style: italic;
+    color: white;
+}
+
+/* Utasítás a szövegen belül */
+.instruction-in-text {
+    font-style: italic;
+    color: white;
+}
+
+/* Jelenet cím és bevezető narráció */
+.scene-heading {
+    font-weight: bold;
+    color: white;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+/* Reszponzivitás - kisebb képernyőkre */
+@media (max-width: 768px) {
+    .dialogue-line, .narration-line {
+        flex-direction: column; /* Oszlopba rendeződik a név és a szöveg */
+        align-items: flex-start;
+    }
+    .character-name-wrapper, .narration-label {
+        text-align: left; /* Balra igazítás mobilnézetben */
+        padding-right: 0;
+        padding-bottom: 2px; /* Kicsi térköz a név és a szöveg között */
+        flex-basis: auto; /* Automatikus szélesség */
+        max-width: none; /* Nincs maximális szélesség */
+    }
+    .character-text-wrapper, .narration-text-content {
+        padding-left: 0; /* Nincs bal belső térköz */
+    }
+}
+</style>
+</head>
+<body>
+
+<p class="narration">Stermeczky Eszter</p>
+<p class="narration">Rádiójáték</p>
+<p class="narration">Jelige: négynegyed</p>
+<p class="narration">Szereplők:</p>
+<p class="narration">Olivér – tizenéves</p>
+<p class="narration">Benjámin – tizenéves</p>
+<p class="narration">Pólya néni – középkorú</p>
+<p class="narration">Takaró néni - középkorú</p>
+<p class="narration">Gáspár bácsi hangja (megj.: akár szereplőként is be lehet hozni)</p>
+
+<C-0>S ű r ű erd ő .</C-0>
+<C-0>[OLIVÉR és BENJÁMIN a színen. Sétálnak, meg-megállnak, folyamatosan felfelé néznek, miközben BENJÁMIN a kérdést teszi fel többször egymás után.]</C-0>
+<C-0>[PÓLYA NÉNI és TAKARÓ néni is a színen vannak, de mozdulatlanok, nincs rajtuk hangsúly, mintha fák lennének az erd ő ben.]</C-0>
+
+<C-BE>Szabad?</C-BE>
+<C-O>Nem.</C-O>
+<C-BE>Szabad?</C-BE>
+<C-O>Nem.</C-O>
+<C-BE>És itt szabad?</C-BE>
+<C-O>Nem.</C-O>
+<C-BE>Még mindig nem szabad?</C-BE>
+<C-O>Nem.</C-O>
+<C-BE>Visszafordulunk?</C-BE>
+<C-O>Nem! Szívesebben süllyednénk el itt a mocsárban, minthogy oda visszamenjünk! Akkor legalább örökre elt ű nnénk a szemük el ő l és soha többet nem lennénk.</C-O>
+<C-BE>Te figyelj, Olivér. Én azt hallottam, hogy savas környezetben a testek jobban konzerválódnak. Szóval végülis lennénk. Vagy hát kicsit úgy lennénk, mint a Schrödinger macskája. Hogy vagyunk is, meg nem is.</C-BE>
+<C-O>Ezek nem olyanok, mint az a macska, csak úgy néznek ki mintha élnének, de meg vannak halva. Én láttam azokról a mocsári hullákról képeket, Benjámin, és hidd el, nem akarsz úgy kinézni, mint azok.</C-O>
+<C-BE>Miért, azok milyenek?</C-BE>
+<C-O>Olyan…aszottak.</C-O>
+<C-BE>A romlott szilvára szokták ezt mondani. Akkor olyanok, mint egy aszott szilva?</C-BE>
+<C-O>Igen, mint egy szilva, ami már lehullott, és nem szedték össze id ő ben.</C-O>
+<C-BE>De azért lekvár még lehet bel ő le?</C-BE>
+<C-O>Nem. Ez már megrohadt belülr ő l is.</C-O>
+<C-BE>Azért én nagyon szeretem a szilvát. Szerintem aszottul is finom édes lehet. Hé! Most miért álltál meg?</C-BE>
+<C-O>Süllyedek.</C-O>
+<C-BE>Ne! Nem lehet így vége!</C-BE>
+<C-O>Hogy?</C-O>
+<C-BE>Hát, hogy éppen megyünk valahonnan valahova. Emlékszel, amikor olvastad nekem a Gy ű r ű k Urát? Na, most képzeld el, hogy elolvasod feléig és akkor hirtelen vége, mert megállnak az erd ő ben és elsüllyednek a mocsárban. Csak így. És nincs folytatás.</C-BE>
+<C-O>De azt mondtad, a feléig. Ha ott elsüllyednek, akkor az nem a fele, hanem a vége.</C-O>
+<C-BE>Hát de éppen ezt mondom, hogy nem lehet a felének a vége az, hogy elsüllyednek! Ezt mondom, hogy mi is most a felénél vagyunk, vagy a negyedénél vagy a háromnegyedénél, nekem mindegy, de nem a végénél.</C-BE>
+<C-O>Benjámin.</C-O>
+<C-BE>Na.</C-BE>
+<C-O>Azt tudod, hogy te vak vagy, ugye?</C-O>
+<C-BE>De nem hülye! Mire akarsz kilyukadni?</C-BE>
+<C-O>Arra, hogy én bármit olvashattam neked Gy ű r ű k Ura címszó alatt. Lehet, hogy hazudtam, és az eredetiben igenis elsüllyednek a mocsárban.</C-O>
+<C-BE>Nem hiszem el. Nincs neked ekkora fantáziád.</C-BE>
+<C-0>(A terem több pontjából egyszerre szólal meg egy cseng ő hang. BENJÁMIN nem hall semmit, OLIVÉR kapkodja a fejét.)</C-0>
+<C-O>Ez mi? Milyen hang ez?</C-O>
+<C-BE>Mi? Ez csak a szél, ahogy suhogtatja a fák lombját.</C-BE>
+<C-O>Ez olyan, mint…a Pólya néni telefonja.</C-O>
+<C-0>(BENJÁMIN a zsebéhez kap.)</C-0>
+<C-BE>Honnan tudod te, hogy az milyen?</C-BE>
+<C-0>(OLIVÉR hallgatózik. PÓLYA NÉNI felveszi a telefont, ám nem hallani, kivel beszél, csak foszlányokat érteni.)</C-0>
+<C-PN>Jaj, ne is mondd. Még mindig munkában. Kész börtön ez a hely…sok degenerált meg mentális sérült gyerek…most is van egy…a szül ő k…az apja…emlékszel még rá? Na és neki volt a gyereke az Olivér. Egy ilyen sz ő ke, gusztustalan gyerek…na leraklak, mer’ itt van. (OLIVÉRHEZ.) Nem tanították meg neked, hogy illik kopogni miel ő tt benyitunk? Nem örülnél neki, ha Gáspár bácsi megtudná, ugye?</C-PN>
+<C-O>A Gáspár bácsi sem szokott kopogni…</C-O>
+<C-PN>Na megállj csak, meglátjuk mi lesz, ha visszapofázol. Mondjad, mi a ny ű göd? Hahó! Nem üldögélhetsz itt egész nap! Ugye nem csak te is azért jöttél, hogy ellógd az iskolát? Van bajod?</C-PN>
+<C-0>(OLIVÉR bólint.)</C-0>
+<C-PN>Na jó. (El ő vesz egy papírköteget.) Mondani fogok három állítást. Te kiválasztod, hogy egyt ő l háromig melyik igaz rád, els ő , második vagy harmadik. Néha szomorú vagyok. Gyakran szomorú vagyok. Mindig szomorú vagyok.</C-PN>
+<C-O>Én…nem tudom eldönteni. Nem tudom…ez nem a szomorúsággal kapcsolatos.</C-O>
+<C-PN>Csak válassz már valamit, édes jó Istenem!</C-PN>
+<C-O>Els ő .</C-O>
+<C-PN>Gy ű lölöm magam. Nem szeretem magam. Szeretem magam.</C-PN>
+<C-O>Én ezt… nem tudom eldönteni.</C-O>
+<C-PN>Els ő , második vagy harmadik?</C-PN>
+<C-O>Végig kell gondolnom…</C-O>
+<C-PN>(Agresszívabban.) Els ő , második vagy harmadik?</C-PN>
+<C-O>Második.</C-O>
+<C-PN>Képtelen vagyok bármiben is dönteni. Nehezen tudok bármiben is dönteni. Nem esik nehezemre dönteni. Jó, erre ne válaszolj. Ezt már tudom. Els ő . Nem gondolok arra, hogy megöljem magam. Gondoltam rá, hogy megöljem magam, de nem tenném meg. A legszívesebben megölném magam.</C-PN>
+<C-O>Ugorjuk át.</C-O>
+<C-PN>Szeretem mások társaságát. Gyakran nem kívánom mások társaságát. Egyáltalán nem kívánom mások társaságát.</C-PN>
+<C-O>Ez attól függ, kir ő l van szó.</C-O>
+<C-PN>Ne kezdd már megint! Jó, akkor mondjuk a szobatársaid társaságát szereted?</C-PN>
+<C-O>Igen.</C-O>
+<C-PN>Annak a vak kölyöknek a társaságát szereted?</C-PN>
+<C-O>Igen.</C-O>
+<C-PN>És az id ő sebb gyerekekét?</C-PN>
+<C-O>Igen.</C-O>
+<C-PN>Hát akkor kinek nem szereted a társaságát?!</C-PN>
+<C-O>Hát…a Gáspár bácsiét (motyog).</C-O>
+<C-PN>Mit makogsz?!</C-PN>
+<C-O>A Gáspár bácsiét…</C-O>
+<C-PN>Remélem, hogy nem hallottam jól?! Kiét?</C-PN>
+<C-O>A Gáspár bácsiét-</C-O>
+<C-BE>Hahó! Olivér! Mi a fenét csinálsz? Miért hagytál ott, mi van veled?! Ugye nem akartál otthagyni egyedül?</C-BE>
+<C-O>Nem, nem. Dehogy. Csak…láttam valamit.</C-O>
+<C-BE>Mit?</C-BE>
+<C-O>Semmit, csak egy fát.</C-O>
+<C-BE>Abból itt elég sok van.</C-BE>
+<C-O>Furcsa volt az alakja, olyan emberi. Úgy görnyedt, mint a Pólya néni a székében. Elzavart, hogy nincs is nekem semmi bajom.</C-O>
+<C-BE>Szabad már?</C-BE>
+<C-0>(OLIVÉR felnéz.)</C-0>
+<C-O>Nem.</C-O>
+<C-BE>Akkor menjünk vissza. Fázok. És éhes is vagyok.</C-BE>
+<C-O>Benjámin. Ott is fáztál és éhes voltál.</C-O>
+<C-BE>De nem leszek, ha visszamegyünk.</C-BE>
+<C-O>Hogy érted?</C-O>
+<C-BE>Sehogy!</C-BE>
+<C-O>Ki fogunk jutni. Szabad lesz. Megígértem neked. Gyere.</C-O>
+<C-BE>Csak egyre mélyebben tévedünk el.</C-BE>
+<C-TN>Shhh.</C-TN>
+<C-O>Ez mi volt? Hallod? Suhogás.</C-O>
+<C-BE>A szél az, még mindig.</C-BE>
+<C-O>Nem. Ez emberi suttogás.</C-O>
+<C-TN>Shhh. Te gyerek!</C-TN>
+<C-O>Ez a Takaró néni! Nem hallod?</C-O>
+<C-BE>Olivér, te meg ő rültél.</C-BE>
+<C-0>(OLIVÉR lefekszik a földre.)</C-0>
+<C-TN>Mit bujkálsz itt az ágy alatt a koszban, mocsokban, he?! Asszed ez vicces?</C-TN>
+<C-O>Bújócskázok néni, kérem ne áruljon el.</C-O>
+<C-TN>Ilyenkor bújócskázni! Van fogalmad róla, hány óra van? Na megálljatok csak, melyik hülyegyerekek vannak még ébren ilyenkor? Riasztom a személyzetet, aztán a Gáspár bácsi el ő tt már nem lesz kedvetek játszadozni.</C-TN>
+<C-O>Néni! A Gáspár bácsival bújócskázok!</C-O>
+<C-TN>…hogy?</C-TN>
+<C-O>Ő a hunyó.</C-O>
+<C-TN>Olivér. Nem szabad a feln ő ttnek hazudni.</C-TN>
+<C-O>Kérem, hajtsa vissza a takarót. Nem akarom, hogy megtaláljon.</C-O>
+<C-TN>Mióta vagy itt?</C-TN>
+<C-O>Egy, vagy két órája.</C-O>
+<C-TN>Ezt nem hiszem el. Ez most csak valami vicc. Ilyen hülyének nézel, tényleg?! Én most fogom magam, és átmegyek a Gáspár bácsi lakrészébe. Megesküdnék rá, hogy ott fekszik az ágyában félzokniban, és horkol. Csoda, hogy idáig nem hallatszik el!</C-TN>
+<C-O>Mert nem alszik. Segítsen.</C-O>
+<C-TN>(ijedt, láthatóan hezitál) Na elég volt a hazugságaidból! Ez ő rület! Elegem van az összes retardált, kretén gyerekb ő l ezen a helyen! Remélem, tudjátok, hogy nem véletlen kerültetek ide. Most azonnal idehívom Gáspár bácsit és ő majd elbeszélget veled.</C-TN>
+<C-0>(TAKARÓ NÉNI a fülénél fogva fel akarja húzni OLIVÉRT. OLIVÉR tiltakozik, levágja magát a földre.)</C-0>
+<C-O>Nem!</C-O>
+<C-BE>Csak egy Takaró néni alakú fa, mi?</C-BE>
+<C-O>Igen.</C-O>
+<C-0>(OLIVÉR összegörnyedve a földön. BENJÁMIN felhúzza.)</C-0>
+<C-BE>Tiszta mocsok vagy. És már mocsári hulla is lennél, ha nem segítenék. Tényleg azt hiszed, készen állsz a külvilágra?</C-BE>
+<C-O>Az nem lehet olyan rossz, mint ott bent. Benjámin, én azt hiszem, tényleg meg ő rültem.</C-O>
+<C-0>(Ugyanaz a cseng ő hang szólal meg, mint korábban, ám ezúttal BENJÁMIN fel ő l. A zsebéhez kap.)</C-0>
+<C-O>Na most! Most hallod?</C-O>
+<C-BE>Mit?</C-BE>
+<C-O>Várj…ez t ő led jön?</C-O>
+<C-BE>Mir ő l beszélsz?</C-BE>
+<C-0>(BENJÁMIN kikapja a zsebéb ő l a telefont, szorongatja.)</C-0>
+<C-O>Hogyhogy ez nálad van? Hallod? Ez a Pólya néni telefonja! Hogy került hozzád?</C-O>
+<C-BE>Ez az enyém.</C-BE>
+<C-O>Dehogy a tiéd! Add azt ide. (Kitépi a kezéb ő l, felveszi a csörg ő telefont. GÁSPÁR BÁCSI hangja szólal meg, mintha rádióból jönne. Recseg ő s.)</C-O>
+<C-GB>Szia Benjámin! Merre jártok? Ugye még nem jutottatok ki? Meggy ő zted már Olivért? Emlékszel, mit mondtam…ha meggy ő zöd, hogy forduljon vissza, nagyon hálásak leszünk ám neked. Ha nem sikerül meggy ő zni, akkor csak ne hagyd, hogy kijusson. Er ő s gyerek vagy te. Izmosak a karjaid. Tudom én. Ha id ő ben visszaérsz, meghallgathatjuk a rádiójátékot.</C-GB>
+<C-0>(OLIVÉR kinyomja.)</C-0>
+<C-BE>Én mondtam neked, hogy forduljunk vissza.</C-BE>
+<C-O>Szóval te sosem akartál jönni.</C-O>
+<C-BE>Én csak téged akartalak megvédeni. Mi oda valók vagyunk!</C-BE>
+<C-O>Ne hazudj. Miért árultál el valójában? Tudod, Gáspár bácsi nekem is mondta már ezt.</C-O>
+<C-BE>Mit?</C-BE>
+<C-O>Hogy izmos vagyok. Meg hogy-</C-O>
+<C-GB>(Ismét recsegéshang.) -szépek a szemeid. Tiszták. És szép, kerek kis arcod van. Ezzel a sz ő ke hajjal egészen a kis hercegre emlékeztetsz. Megtaláltad már a rózsád?</C-GB>
+<C-O>Nem.</C-O>
+<C-GB>Helyes! És mondd csak, te kis herceg. Szeretnél fennmaradni hallgatni a rádiót?</C-GB>
+<C-0>(OLIVÉR megszorítja BENJÁMINT.)</C-0>
+<C-O>Igent mondtam.</C-O>
+<C-BE>Olivér. Szorítasz. Ez fáj.</C-BE>
+<C-O>Ne haragudj.</C-O>
+<C-BE>Mit csinálsz? Engedj el! Nem tudok mozogni, így el fogok süllyedni!</C-BE>
+<C-0>(OLIVÉR elengedi, de BENJÁMIN már nem tud mozogni.)</C-0>
+<C-BE>Hallod! Segíts!</C-BE>
+<C-O>(OLIVÉR felnéz.) Ha szabad lenne, akkor is visszamennél?</C-O>
+<C-BE>Az az otthonom! És végre azt mondták, kedvesek lesznek velem! Én sohasem maradhattam fent a rádiót hallgatni. Neked még azt is megengedték. Engem is érdekelt, hogy mi van a külvilágban! De azt mondták, hogy az veszélyes, és te állandóan a veszélyt keresed és ha kimegyünk, akkor nem tudnak megvédeni minket. De a rádió. A rádió az biztonságos. Gáspár bácsi azt hallgatja az irodájában minden nap.</C-BE>
+<C-O>Tudom.</C-O>
+<C-BE>Nem csak a rádió miatt mondtam igent. Van ez a mondás, hogy vak vezet világtalant. El ő ször azt hittem, ez rossz, de aztán elmagyarázták, hogy az én esetemben ez nagyon jót jelent, mert téged kell majd vezetnem, hogy jó útra térj, és nekem ez nagyon nagy dolog volt. Én akartam lenni egyszer az, aki vezet. Akit nem kell vezetni. Neked se és másnak se. Azt mondta a Gáspár bácsi, akkor majd különleges leszek nekik, és fennmaradhatok vele hallgatni a rádiót.</C-BE>
+<C-O>Én azt hallottam, hogy savas környezetben a testek jobban konzerválódnak.</C-O>
+<C-BE>Olivér, segíts!</C-BE>
+<C-O>Ha majd elkezdenek keresni, azt fogják hinni, hogy velem jöttél, és akkor csalódnak majd benned. És nem hallgathatod velük a rádiót. A rádiót, érted?! Mit akarsz te hallgatni a külvilágon, amikor érezhetnéd, tapinthatnád, szagolhatnád?</C-O>
+<C-BE>Olivér!</C-BE>
+<C-O>És a Takaró, meg a Pólya néni, meg f ő leg a Gáspár bácsi mindig csalódottak lesznek, és sosem fogják tudni, hogy mit tettél értük. Akik meg majd száz meg száz év múlva talán megtalálnak, és beraknak egy múzeumba, már nem fogják hallani az ígéretedet. Ő k már süketek lesznek, nem vakok. Te meg vak is, néma is, meg süket is. Csak egy aszott szilva leszel a szemükben.</C-O>
+<C-BE>Olivér, kérlek!</C-BE>
+<C-O>De hát te mondtad, hogy szereted az aszott szilvát, gondoltam ez neked nem lehet nagy probléma. Rosszul gondoltam?</C-O>
+<C-BE>Ha jönnek és ezt meglátják, nagyon nagy bajban leszel!</C-BE>
+<C-O>És csak hogy tisztázzuk Benjámin, nem tudom, észrevetted-e, de szabályos voltam. Pólya néni, Takaró néni, Gáspár bácsi. És végül te. Négynegyednél megálltunk. Ahogy azt kell. Szóval most már be lehet fejezni. Én meg megyek tovább. Veletek betelt a történet, szóval én kisétálhatok bel ő le. A külvilágba.</C-O>
+<C-BE>Olivér. Olivér! Annyit árulj el legalább, hogy szabad-e már?</C-BE>
+<C-O>(Felnéz. Rádiórecsegés.) Igen, Benjámin. Szabad.</C-O>
+<C-0>(OLIVÉR elindul.)</C-0>
+<C-0>Vége.</C-0>
+
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const characterMap = {
+        'C-O': 'OLIVER',
+        'C-BE': 'BENJAMIN',
+        'C-PN': 'POLYA_NENI',
+        'C-TN': 'TAKARO_NENI',
+        'C-GB': 'GASPAR_BACSI',
+        'C-0': 'NARRATION_ACTION' // Kód a narrációkhoz/akciókhoz
+    };
+
+    const fullCharacterNames = {
+        'OLIVER': 'OLIVÉR',
+        'BENJAMIN': 'BENJÁMIN',
+        'POLYA_NENI': 'PÓLYA NÉNI',
+        'TAKARO_NENI': 'TAKARÓ NÉNI',
+        'GASPAR_BACSI': 'GÁSPÁR BÁCSI',
+        'NARRATION_ACTION': '' // A narrációknak nincs neve, üres string
+    };
+
+    Object.keys(characterMap).forEach(tag => {
+        const elements = document.getElementsByTagName(tag);
+        Array.from(elements).forEach(el => {
+            const characterClass = characterMap[tag];
+            const originalText = el.innerHTML;
+            const fullCharName = fullCharacterNames[characterClass];
+
+            // Utasítások formázása (zárójelben)
+            const formattedText = originalText.replace(/\(([^)]*)\)/g, '<span class="instruction-in-text">($1)</span>');
+
+            let newElement;
+
+            if (characterClass === 'NARRATION_ACTION') {
+                newElement = document.createElement('div');
+                newElement.classList.add('narration-line');
+                newElement.innerHTML = `
+                    <div class="narration-label"></div> <div class="narration-text-content">${formattedText}</div>
+                `;
+            } else {
+                newElement = document.createElement('div');
+                newElement.classList.add('dialogue-line', `character-${characterClass}`);
+                newElement.innerHTML = `
+                    <div class="character-name-wrapper">${fullCharName}:</div>
+                    <div class="character-text-wrapper">${formattedText}</div>
+                `;
+            }
+            el.parentNode.replaceChild(newElement, el);
+        });
+    });
+});
+</script>
+</html>
