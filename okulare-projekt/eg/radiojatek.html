@@ -82,6 +82,25 @@ body {
     text-align: center;
     font-size: 1.2em;
 }
+.manual-narration { /* A manuálisan hozzáadott <p class="narration"> elemekhez */
+    font-style: italic;
+    color: white;
+    text-align: left; /* Vagy center, ízlés szerint */
+    margin-left: 135px; /* Behúzás, hogy a narráció oszlopához igazodjon, ha nincs név előtte */
+}
+.title-narration {
+    font-style: normal; /* A cím és szereplők ne legyenek dőltek */
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.character-list-narration {
+    font-style: normal;
+    color: white;
+    text-align: center; /* Vagy left */
+    margin-bottom: 2px;
+}
 
 /* Reszponzivitás - kisebb képernyőkre */
 @media (max-width: 768px) {
@@ -99,20 +118,23 @@ body {
     .character-text-wrapper, .narration-text-content {
         padding-left: 0; /* Nincs bal belső térköz */
     }
+    .manual-narration {
+        margin-left: 0; /* Mobilon nincs extra behúzás */
+    }
 }
+
 </style>
 </head>
 <body>
 
-<p class="narration">Stermeczky Eszter</p>
-<p class="narration">Rádiójáték</p>
-<p class="narration">Jelige: négynegyed</p>
-<p class="narration">Szereplők:</p>
-<p class="narration">Olivér – tizenéves</p>
-<p class="narration">Benjámin – tizenéves</p>
-<p class="narration">Pólya néni – középkorú</p>
-<p class="narration">Takaró néni - középkorú</p>
-<p class="narration">Gáspár bácsi hangja (megj.: akár szereplőként is be lehet hozni)</p>
+<p class="title-narration">Stermeczky Eszter</p>
+<p class="title-narration">Rádiójáték</p>
+<p class="title-narration">Jelige: négynegyed</p>
+<p class="character-list-narration">Olivér – tizenéves</p>
+<p class="character-list-narration">Benjámin – tizenéves</p>
+<p class="character-list-narration">Pólya néni – középkorú</p>
+<p class="character-list-narration">Takaró néni - középkorú</p>
+<p class="character-list-narration">Gáspár bácsi hangja (megj.: akár szereplőként is be lehet hozni)</p>
 
 <C-0>Sűrű erdő.</C-0>
 <C-0>OLIVÉR és BENJÁMIN a színen. Sétálnak, meg-megállnak, folyamatosan felfelé néznek, miközben BENJÁMIN a kérdést teszi fel többször egymás után.</C-0>
