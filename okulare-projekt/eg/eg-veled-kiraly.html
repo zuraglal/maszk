@@ -84,6 +84,19 @@ body {
     text-align: center;
     font-size: 1.2em;
 }
+.title-narration {
+    font-style: normal; /* A cím és szereplők ne legyenek dőltek */
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.character-list-narration {
+    font-style: normal;
+    color: white;
+    text-align: center; /* Vagy left */
+    margin-bottom: 2px;
+}
 
 /* Reszponzivitás - kisebb képernyőkre */
 @media (max-width: 768px) {
@@ -101,18 +114,22 @@ body {
     .character-text-wrapper, .narration-text-content {
         padding-left: 0; /* Nincs bal belső térköz */
     }
+    .manual-narration {
+        margin-left: 0; /* Mobilon nincs extra behúzás */
+    }
 }
 </style>
 </head>
 <body>
-
-<p class="narration">Ég veled, király!</p>
-<p class="narration">Szereplők :</p>
-<p class="narration">KIRÁLY, Caltarif királya</p>
-<p class="narration">PARASZT, caltarifi jobbágy, a Bolond nagybátyja</p>
-<p class="narration">BOLOND, udvari bolond, a Paraszt unokaöccse a Király talpnyalói</p>
-<p class="narration">I. NEMES</p>
-<p class="narration">II. NEMES</p>
+    
+<p class="title-narration">Mérész Boglárka</p>
+<p class="title-narration">Ég veled, király!</p>
+<p class="character-list-narration">KIRÁLY, Caltarif királya</p>
+<p class="character-list-narration">PARASZT, caltarifi jobbágy, a Bolond nagybátyja</p>
+<p class="character-list-narration">BOLOND, udvari bolond, a Paraszt unokaöccse</p>
+<p class="character-list-narration">A Király talpnyalói:</p>
+<p class="character-list-narration">I. NEMES</p>
+<p class="character-list-narration">II. NEMES</p>
 
 <div class="scene-heading">Első jelenet</div>
 <C-0>Félhomályos üres folyosó. A Paraszt érkezik, feldúltan, magában zsörtölődve. Idegesen keresi azt az ajtót, ahol a terembe be lehet jutni. Hangosan közlekedik, amikor megtalálja azt az ajtót, be akarja törni, de kilép rajta a Bolond, aki azonnal távolabb viszi onnan a Parasztot</C-0>
