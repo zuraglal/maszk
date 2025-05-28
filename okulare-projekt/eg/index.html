@@ -4,63 +4,260 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style type="text/css">
-        body {
-          background: #000;
-          color: #fff;
-          font-family: Arial, Helvetica, sans-serif;
-          font-size: 22pt;
-          font-style: normal;
-          font-weight: normal;
-          direction: ltr;
-        }
-    </style>
-    <link rel="javascript" href="index.js">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     <title>MASZK | ÉG</title>
+    <style type="text/css">
+        body {
+            background: #000;
+            color: #fff;
+            font-family: "Nunito", sans-serif;
+            font-size: 1.2rem;
+            font-style: normal;
+            font-weight: normal;
+            direction: ltr;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+            text-align: center;
+        }
+
+        h1, h2 {
+            margin-bottom: 0.5em;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+        }
+        
+        /* Általános h3 stílus, ha szükséges, de a .play-section h3 specifikusabb lesz */
+        h3 {
+            font-size: 1.5rem; /* Ezt felülírja a .play-section h3 */
+            margin-top: 0;
+            margin-bottom: 0.7em;
+        }
+
+        a {
+            color: #88f;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        a:visited {
+            color: #88f;
+        }
+        a:active {
+            color: #88f;
+        }
+
+        .play-section {
+            margin-bottom: 5px;
+            padding: 5px;
+            text-align: left; /* Ez marad, hogy a szereposztás szövege balra igazodjon alapból */
+        }
+
+        .play-section h3 { /* A darabok címeinek (H3) stílusa */
+            text-align: center;
+            font-size: 1.3em;   /* A cím betűmérete */
+            margin-bottom: 0.7em; /* Megtartjuk a H3 általános margóját, vagy felülírjuk */
+        }
+        /* A .play-section h3 a specifikus szabályra már nincs szükség, ha a h3-at stilizáljuk */
+        
+        .cast-list {
+            margin-bottom: 10px;
+        }
+
+        .cast-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2px;
+            padding: 2px 0;
+        }
+
+        .character-column {
+            flex-basis: 48%; 
+            text-align: right;
+        }
+
+        .actor-column {
+            flex-basis: 48%; 
+            text-align: left;
+        }
+        
+        .director-info {
+            margin-top: 2px;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .centered-link-paragraph {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .event-links-container,
+        .images-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin: 20px 0;
+        }
+
+        .event-links-container > div,
+        .images-container > div {
+            flex-basis: 48%;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .images-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                font-size: 1.1rem;
+            }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.6rem; }
+            .play-section h3 { font-size: 1.2rem; } /* Kisebb képernyőn a darab címe is kisebb */
+
+
+            .event-links-container > div,
+            .images-container > div {
+                flex-basis: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 1rem;
+            }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.4rem; }
+            .play-section h3 { font-size: 1.1rem; } /* Még kisebb képernyőn a darab címe */
+        }
+
+    </style>
 </head>
 <body>
 
-    <body link="#88f" vlink="#88f" alink="#88f">
-	
-	<h1>Okuláré Projekt</h1>
-	<h2>ÉG</h2>
-	<h2>2025. június 20., péntek 19:00
-		<br>Szent István Magyar Misszió - Zürich, Winterthurerstrasse 135.
-	</h2>
-	<p><a href="eg-veled-kiraly.html">👑 Mérész Bogi – Ég veled, király!</a>
-		<br>Király: Bednár János
-		<br>Paraszt: Incze Dalma Emőke
-		<br>Bolond: Somogyvári Kristóf
-    		<br>I. nemes: Lipcsei Ferenc
-		<br>II. nemes: Mikle Fázin
-		<br>🎬 Rendező: Balázs Anna Mária (Amy)
-	</p>
-	<p><a href="radiojatek.html">🌌 Stermeczky Boglárka Eszter – Rádiójáték</a>
-		<br>Olivér: Bednár János
-		<br>Benjámin: Somogyvári Kristóf
-		<br>Pólya néni: Mikle Fázin
-		<br>Takaró néni: Incze Dalma Emőke
-		<br>Gáspár bácsi: Lipcsei Ferenc
-		<br>🎬 Rendező: Szabó Tímea
-	</p>
-	<p><a href="anya-eg-a-rantott-hus.html">🔥 Wolff Nikoletta – Anya, ég a rántott hús!</a>
-		<br>Rita: Szabó Tímea
-		<br>Iskolás Vanda: Incze Dalma Emőke
-		<br>Iskolás Ádám: Somogyvári Kristóf
-		<br>Felnőtt Vanda: Mikle Fázin
-		<br>Felnőtt Ádám: Bednár János
-		<br>🎬 Rendező: Lipcsei Ferenc
-	</p>
-	
-	<p><a href="https://docs.google.com/spreadsheets/d/12bAPpNYB-BB4ivmMibR6FqbzUzs0RAdy85yTB9dYDIc/edit?usp=sharing">Kelléklista + Ráérés</a></p>
-	<p><a href="https://fb.me/e/5HCXuHSuU" target="_blank">Facebook-esemény</a></p>
-	<p><a href="https://eventfrog.ch/okulare-eg" target="_blank">Eventfrog-esemény</a></p>
-	<p><img src="media/eg-fb-cover.jpg" alt="Facebook-esemény borítója"></p>
-	<p><img src="media/eg-plakat.jpg" alt="Plakát"></p>
-	
+    <div class="main-container">
+		<h1>ÉG</h1>
+		<h2>Okuláré Projekt - kortárs felolvasószínházi est</h2>
+        <h3>⌚ 2025. június 20., péntek 19:00–22:00
+            <br>📍 <a href="https://maps.app.goo.gl/3r54z47VLqWDTe947">Szent István Magyar Misszió
+			<br>8057 Zürich, Winterthurerstrasse 135.</a>
+        </h3>
+
+        <div class="play-section">
+            <h3><a href="eg-veled-kiraly.html">👑 Mérész Bogi – Ég veled, király!</a></h3>
+            <div class="cast-list">
+                <div class="cast-line">
+                    <div class="character-column">Király:</div>
+                    <div class="actor-column">Bednár János</div>
+                </div>
+                <div class="cast-line">
+                    <div class="character-column">Paraszt:</div>
+                    <div class="actor-column">Incze Dalma Emőke</div>
+                </div>
+                <div class="cast-line">
+                    <div class="character-column">Bolond:</div>
+                    <div class="actor-column">Somogyvári Kristóf</div>
+                </div>
+                <div class="cast-line">
+                    <div class="character-column">I. nemes:</div>
+                    <div class="actor-column">Lipcsei Ferenc</div>
+                </div>
+                <div class="cast-line">
+                    <div class="character-column">II. nemes:</div>
+                    <div class="actor-column">Mikle Fázin</div>
+                </div>
+            </div>
+			<p class="director-info">🎬 Rendező: Balázs Anna Mária (Amy)</p>
+        </div>
+
+        <div class="play-section">
+            <h3><a href="radiojatek.html">🌌 Stermeczky Boglárka Eszter – Rádiójáték</a></h3>
+            <div class="cast-list">
+                <div class="cast-line">
+                    <div class="character-column">Olivér:</div>
+                    <div class="actor-column">Bednár János</div>
+                </div>
+                <div class="cast-line">
+                    <div class="character-column">Benjámin:</div>
+                    <div class="actor-column">Somogyvári Kristóf</div>
+                </div>
+                <div class="cast-line">
+                    <div class="character-column">Pólya néni:</div>
+                    <div class="actor-column">Mikle Fázin</div>
+                </div>
+                <div class="cast-line">
+                    <div class="character-column">Takaró néni:</div>
+                    <div class="actor-column">Incze Dalma Emőke</div>
+                </div>
+                <div class="cast-line">
+                    <div class="character-column">Gáspár bácsi:</div>
+                    <div class="actor-column">Lipcsei Ferenc</div>
+                </div>
+            </div>
+			<p class="director-info">🎬 Rendező: Szabó Tímea</p>
+        </div>
+
+        <div class="play-section">
+            <h3><a href="anya-eg-a-rantott-hus.html">🔥 Wolff Nikoletta – Anya, ég a rántott hús!</a></h3>
+            <div class="cast-list">
+                <div class="cast-line">
+                    <div class="character-column">Rita:</div>
+                    <div class="actor-column">Szabó Tímea</div>
+                </div>
+                <div class="cast-line">
+                    <div class="character-column">Iskolás Vanda:</div>
+                    <div class="actor-column">Incze Dalma Emőke</div>
+                </div>
+                <div class="cast-line">
+                    <div class="character-column">Iskolás Ádám:</div>
+                    <div class="actor-column">Somogyvári Kristóf</div>
+                </div>
+                <div class="cast-line">
+                    <div class="character-column">Felnőtt Vanda:</div>
+                    <div class="actor-column">Mikle Fázin</div>
+                </div>
+                <div class="cast-line">
+                    <div class="character-column">Felnőtt Ádám:</div>
+                    <div class="actor-column">Bednár János</div>
+                </div>
+            </div>
+			<p class="director-info">🎬 Rendező: Lipcsei Ferenc</p>
+        </div>
+        
+        <p class="centered-link-paragraph"><a href="https://docs.google.com/spreadsheets/d/1Ds14En1pZfytsXpPnHa2HSaKN6ZnqgrUwAMLH1Rp4NM/edit?usp=sharing">Kelléklista + Ráérés</a></p>
+        
+        <div class="event-links-container">
+            <div><p><a href="https://fb.me/e/5HCXuHSuU" target="_blank">Facebook-esemény</a></p></div>
+            <div><p><a href="https://eventfrog.ch/okulare-eg" target="_blank">Eventfrog-esemény</a></p></div>
+        </div>
+        
+        <div class="images-container">
+            <div><img src="media/eg-fb-cover.jpg" alt="Facebook-esemény borítója"></div>
+            <div><img src="media/eg-plakat.jpg" alt="Plakát"></div>
+        </div>
+    </div>
 
 </body>
 </html>
-
