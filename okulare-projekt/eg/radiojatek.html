@@ -374,6 +374,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 document.body.innerHTML = (document.body.innerHTML
-    .replaceAll(/<X>(.*?)<\/X>/gsi, '<audio controls><source src="media/$1.mp3" type="audio/mpeg"></audio>'));
+    .replaceAll(/<X>(.*?)<\/X>/gsi, '<audio controls style="height: 10px; width: 100px;"><source src="media/$1.mp3" type="audio/mpeg"></audio>'));
 </script>
 </html>
