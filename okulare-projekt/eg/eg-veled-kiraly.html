@@ -480,5 +480,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // A scene-heading már div, az is marad
 
 });
+document.body.innerHTML = (document.body.innerHTML
+    .replaceAll(/<X>(.*?)<\/X>/gsi, '<audio controls><source src="media/$1.mp3" type="audio/mpeg"></audio>'));
 </script>
 </html>
