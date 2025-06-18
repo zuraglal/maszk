@@ -387,5 +387,13 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 document.body.innerHTML = (document.body.innerHTML
     .replaceAll(/<X>(.*?)<\/X>/gsi, '<audio controls style="height: 10px; width: 100px;"><source src="media/$1.mp3" type="audio/mpeg"></audio>'));
+document.addEventListener('play', function(e){  
+    var audios = document.getElementsByTagName('audio');  
+    for(var i = 0, len = audios.length; i < len;i++){  
+        if(audios[i] != e.target){  
+            audios[i].pause();  
+        }  
+    }  
+}, true);
 </script>
 </html>
