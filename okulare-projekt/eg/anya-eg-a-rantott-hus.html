@@ -537,7 +537,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 newElementHtml = tempWrapper.innerHTML;
             }  else if (tagName.startsWith('X')) {
                const originalText = elNode.innerHTML;
-               newElementHtml = `<audio controls><source src="media/${originalText}.mp3" type="audio/mpeg"></audio>`;
+               newElementHtml = `<audio controls style="height: 10px; width: 100px;"><source src="media/${originalText}.mp3" type="audio/mpeg"></audio>`;
             }
 
             // Az új HTML stringet DOM elemekké alakítjuk és hozzáadjuk a fragmenthez
