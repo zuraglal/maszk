@@ -35,16 +35,11 @@ body {
 }
 
 /* Character colors */
-.character-OLIVER .character-name-wrapper,
-.character-OLIVER .character-text-wrapper { color: #90EE90; } /* LightGreen */
-.character-BENJAMIN .character-name-wrapper,
-.character-BENJAMIN .character-text-wrapper { color: #5F9EA0; } /* CadetBlue */
-.character-POLYA_NENI .character-name-wrapper,
-.character-POLYA_NENI .character-text-wrapper { color: #FFB6C1; } /* LightPink */
-.character-TAKARO_NENI .character-name-wrapper,
-.character-TAKARO_NENI .character-text-wrapper { color: #DDA0DD; } /* Plum */
-.character-GASPAR_BACSI .character-name-wrapper,
-.character-GASPAR_BACSI .character-text-wrapper { color: #ADD8E6; } /* LightBlue */
+.character-OLIVER { color: #90EE90; } /* LightGreen */
+.character-BENJAMIN { color: #5F9EA0; } /* CadetBlue */
+.character-POLYA_NENI { color: #FFB6C1; } /* LightPink */
+.character-TAKARO_NENI { color: #DDA0DD; } /* Plum */
+.character-GASPAR_BACSI { color: #ADD8E6; } /* LightBlue */
 
 /* Narráció stílusok */
 .narration-line {
@@ -386,7 +381,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 document.body.innerHTML = (document.body.innerHTML
-    .replaceAll(/<X>(.*?)<\/X>/gsi, '<audio controls style="height: 10px; width: 100px;"><source src="media/$1.mp3" type="audio/mpeg"></audio>'));
+    .replaceAll(/<X>(.*?)<\/X>/gsi, '<audio controls style="height: 10px; width: 100px;"><source src="media/$1.mp3" type="audio/mpeg"></audio>')
+    .replaceAll(/OLIVÉR/gi, '<span class="character-OLIVER">Olivér</span>')
+    .replaceAll(/BENJÁMIN/gi, '<span class="character-BENJAMIN">Benjámin</span>')
+    .replaceAll(/PÓLYA NÉNI/gi, '<span class="character-POLYA_NENI">Pólya néni</span>')
+    .replaceAll(/TAKARÓ NÉNI/gi, '<span class="character-TAKARO_NENI">Takaró néni</span>')
+    );
 document.addEventListener('play', function(e){  
     var audios = document.getElementsByTagName('audio');  
     for(var i = 0, len = audios.length; i < len;i++){  
