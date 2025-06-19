@@ -33,26 +33,19 @@ body {
 }
 
 /* Szereplő specifikus színek */
-.character-RITA .character-name-wrapper,
-.character-RITA .character-text-wrapper { color: #ADD8E6; } /* LightBlue */
+.character-RITA { color: #ADD8E6; } /* LightBlue */
 
-.character-ISKOLAS_VANDA .character-name-wrapper,
-.character-ISKOLAS_VANDA .character-text-wrapper { color: #FFB6C1; } /* LightPink */
+.character-ISKOLAS_VANDA { color: #FFB6C1; } /* LightPink */
 
-.character-ISKOLAS_ADAM .character-name-wrapper,
-.character-ISKOLAS_ADAM .character-text-wrapper { color: #90EE90; } /* LightGreen */
+.character-ISKOLAS_ADAM { color: #90EE90; } /* LightGreen */
 
-.character-FELNOTT_VANDA .character-name-wrapper,
-.character-FELNOTT_VANDA .character-text-wrapper { color: #DA70D6; } /* Orchid */
+.character-FELNOTT_VANDA { color: #DA70D6; } /* Orchid */
 
-.character-FELNOTT_ADAM .character-name-wrapper,
-.character-FELNOTT_ADAM .character-text-wrapper { color: #5F9EA0; } /* CadetBlue */
+.character-FELNOTT_ADAM { color: #5F9EA0; } /* CadetBlue */
 
-.character-ISKOLAS_VANDA_ISKOLAS_ADAM .character-name-wrapper, /* Iskolás Vanda / Iskolás Ádám közös sor */
-.character-ISKOLAS_VANDA_ISKOLAS_ADAM .character-text-wrapper { color: #FFD580; } /* LightOrange */
+.character-ISKOLAS_VANDA_ISKOLAS_ADAM { color: #FFD580; } /* LightOrange */
 
-.character-FELNOTT_ADAM_FELNOTT_VANDA .character-name-wrapper, /* Felnőtt Ádám / Felnőtt Vanda közös sor */
-.character-FELNOTT_ADAM_FELNOTT_VANDA .character-text-wrapper { color: #FFD580; } /* LightOrange */
+.character-FELNOTT_ADAM_FELNOTT_VANDA { color: #FFD580; } /* LightOrange */
 
 /* Narráció stílusok */
 .narration-line {
@@ -570,4 +563,13 @@ document.addEventListener('play', function(e){
 }, true);
 </script>
 </body>
+<script>
+document.body.innerHTML = (document.body.innerHTML
+    .replaceAll(/rita/gi, '<span class="character-RITA">Rita</span>')
+    .replaceAll(/iskolás vanda/gi, '<span class="character-ISKOLAS_VANDA">Iskolás Vanda</span>')
+    .replaceAll(/iskolás ádám/gi, '<span class="character-ISKOLAS_ADAM">Iskolás Ádám</span>')
+    .replaceAll(/felnőtt vanda/gi, '<span class="character-FELNOTT_VANDA">Felnőtt Vanda</span>')
+    .replaceAll(/felnőtt ádám/gi, '<span class="character-FELNOTT_ADAM">Felnőtt Ádám</span>')
+    );
+</script>
 </html>
