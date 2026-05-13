@@ -1,0 +1,728 @@
+<!doctype html>
+<!--
+  Festett falaink – súgómonitor oldal
+  A kód szándékosan tagolt, hogy kézzel is könnyen szerkeszthető legyen.
+-->
+<html lang="hu">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Festett falaink | súgómonitor</title>
+    <link rel="stylesheet" href="css/prompter.css">
+  </head>
+
+  <body>
+    <nav class="topbar" aria-label="Súgómonitor vezérlők">
+      <div>
+        <a class="button" href="index.html">← Index</a>
+        <strong>Festett falaink</strong>
+      </div>
+
+      <div class="controls">
+        <button id="smaller" type="button">A−</button>
+        <input id="fontSlider" type="range" min="16" max="120" step="2" value="32" aria-label="Betűméret">
+        <button id="bigger" type="button">A+</button>
+        <span id="fontValue">32 px</span>
+        <button id="toggleStage" type="button">Instrukciók ki/be</button>
+        <button id="fullscreen" type="button">Teljes képernyő</button>
+      </div>
+    </nav>
+
+    <main class="wrap">
+      <header class="hero">
+        <h1>Festett falaink</h1>
+        <h2>felolvasószínházi súgómonitor-változat</h2>
+      </header>
+
+      <section class="cast-grid" aria-label="Szereplők">
+      <article class="cast-card character-NO">
+        <div class="cast-role">NŐ</div>
+        <div class="cast-desc">fiatal anya</div>
+      </article>
+      <article class="cast-card character-FERFI">
+        <div class="cast-role">FÉRFI / Dani</div>
+        <div class="cast-desc">a nő férje</div>
+      </article>
+      <article class="cast-card character-NO_ANYJA">
+        <div class="cast-role">A NŐ ANYJA</div>
+        <div class="cast-desc">az anya</div>
+      </article>
+      <article class="cast-card character-ZSOLT_FESTO">
+        <div class="cast-role">ZSOLT</div>
+        <div class="cast-desc">festőművész</div>
+      </article>
+      <article class="cast-card character-RADIO">
+        <div class="cast-role">RÁDIÓ</div>
+        <div class="cast-desc">rádióhang</div>
+      </article>
+      </section>
+
+      <section class="script" aria-label="Szövegkönyv">
+    <h2 class="scene-heading">JELENET</h2>
+    <h2 class="scene-heading">DÉLELŐTT</h2>
+    <div class="line dialogue character-RADIO">
+      <div class="speaker">RÁDIÓ</div>
+      <div class="text"><span class="instruction-in-text">szól a lakásban:</span><br>Nehezített teherbeesésről akkor beszélhetünk,  ha egy év rendszeres,<br>védekezés nélküli házasélet után sem jön létre terhesség. Okai sokfélék<br>lehetnek, például hormonális, életmódbeli  problémák, szervi eltérések,<br>megbetegedések, lelki tényezők....</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text"><span class="instruction-in-text">(magában motyog)</span><br>Lelki tényezők... ja... Kinek a lelki tényezői?</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">érkezik,csönget, lánya beengedi<br>Sziasztok! <span class="sfx-list"><button class="sfx" type="button" data-sound="csengo.mp3">▶ csengo</button></span></div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Lekapcsolja a rádiót<br>Szia anya! Gyere be! <span class="sfx-list"><button class="sfx" type="button" data-sound="radio.mp3">▶ radio</button></span></div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Mit hallgattál? De jó kis babaillat van. Ezt az egyet szerettem a<br>babás évekből...</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Ááá, zene szólt, azt hallgattam, aztán kezdődött valami okoskodós<br>műsor, én meg nem kapcsoltam ki. Kérsz egy teát? <span class="sfx-list"><button class="sfx" type="button" data-sound="zene.mp3">▶ zene</button></span></div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Kávé nincs?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Tudod jól, hogy nem bírja a gyomrom. Gyümölcstea. Jöhet?</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Hát, ha nincs kávé... A pindurkám? Alszik? Képzeld, Zsófi lányáék<br>szeptemberre várják a kicsit. Mióta tudja, már nem is lehet másról<br>beszélgetni vele. Eddig minden érdekelte velem kapcsolatban is, meg<br>nyösztetett, hogy menjünk ide, menjünk oda, most meg állandóan<br>babakocsikról, baldachinokról meg tapétákról áradozik. Hogy majd milyen<br>lesz... meg mennyibe kerül...mintha számítana..</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text"><span class="instruction-in-text">(hozza a teát, az anyja elé rakja)</span><br>Egy órája alszik... Vigyázz, még forró... Lehet, hogy egy kicsit túl<br>édesre sikerült.</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Ó, te jó ég! Még megvan ez a bögre? Emlékszem, akkor vettem neked,<br>mikor kórházba kerültél. Azt hittem, hogy rossz emlék és kidobtad.</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Szeretem. Te jutsz róla eszembe.</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Hát, jobb, mintha az a lepusztult kórterem jutna. Dani?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Dolgozik. Össze-vissza. Legtöbbször ketten vagyunk... De valakinek<br>pénzt is kell keresnie. Megnézed, hogy rendezkedtünk be? A gyerekszoba már<br>majdnem teljesen kész.</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Nem ébred fel?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">A NŐ</div>
+      <div class="text">A hálónkban raktam le, ott hűvösebb van. Alváshoz egészségesebb.<br>Bemennek a gyerekszobába</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Hú, ez nagyon klassz lett! Nem is kell több bútor. A fal ilyen marad?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Milyen?</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Hát fehér.</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Miért kérdezed? Ne maradjon? Szerinted legyen színes? Szerinted is<br>jobb lenne, ha színes lenne? Én bézsre gondoltam… A bézsben egy árnyalattal<br>több az élet, mint a hófehérben. A fehér amúgy is olyan.... olyan steril.</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Hát..ahogy szeretnéd...szeretnétek. Én nem akarok beleszólni. Fehéren<br>is jó. Könnyű tisztán tartani.</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Ááá, nekem is jobban tetszene a színes. Szerintem holnap veszek is<br>festéket. Ettől máris jobb a kedvem. <span class="sfx-list"><button class="sfx" type="button" data-sound="zene.mp3">▶ zene</button></span></div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Ez szuper… Nekem viszont lassan indulnom kell. Este színházba megyünk<br>Julival meg Bettivel. Zsófit már oda se hívtuk, úgyse jönne. Vagy ha igen,<br>akkor egész este a babatéma menne. Az meg milyen lenne már, hogy Zsófi<br>nyomná az unokás szöveget, hát jó, nem mintha én nem tudnék hozzá szólni,<br>de a csajok kellemetlenül éreznék magukat.</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Egy kisbaba a világ minden színházánál többet ér.</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Hát persze....na, tudod, hogy gondoltam.</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Szerintem már felébredt. Jössz?</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text"><span class="instruction-in-text">(megáll a szoba ajtajában)</span><br>Na, hát hol van az én kis picurka Arinka babám?</div>
+    </div>
+    <h2 class="scene-heading">JELENET</h2>
+    <h2 class="scene-heading">KÉSŐ DÉLUTÁN</h2>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Szia. Megjött egy fáradt és éhes férj.</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">És szerető apuci... Már nagyon vártunk.</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Siettem, ahogy tudtam. De a közlekedés katasztrofális. Bedugult<br>minden. Mire átverekedtem magam a városon... És ez a sok idióta az<br>utakon... Nem értem, némelyik hogyan kaphatott jogosítványt. De még ott is,<br>ahol mehettek volna... Ott tötyörög előttem, rávillantok, dudálok, akkor is<br>csak harminccal... ja, persze, aztán megláttam a copfját... Szóval nem elég<br>a meló, az út is kimerített. <span class="instruction-in-text">(bont egy sört, tévét kapcsol)</span></div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Ne vedd hangosra, kérlek. Nemrég aludt el.</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text"><span class="instruction-in-text">(sóhajt)</span> ....  Miért csinálod ezt?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Mit? Jól van, jól van... Inkább mesélek. Nekünk nagyon jó napunk<br>volt. Reggel beugrott anya, megnézte a lakást. Felöltöztünk, aztán<br>elmentünk vásárolni. Gyorsan összekapkodtam a piacon az uborkát,<br>paradicsomot… Megálltunk a húsosnál is. Aztán beugrottunk a Plázába. Na,<br>azért ott eltelt az idő. Vettem néhány cuki tipegőt. Az egyik kis üzletben<br>pedig óriási leárazás volt! Kihagyhatatlan! Éééés… <span class="instruction-in-text">(kacéran)</span> vettem egy<br>irtó szexi bodyt! Bordó!  Este majd megmutatom, ha szeretnéd!</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Naná!</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Meg falfestéket.</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Minek?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">A gyerekszoba nem jó így. Anyám szerint is ráférne egy kis szín..<br>Szeretném, ha színes lenne. Lehet, hogy holnap átfestem.</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Te?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Tudod, hogy nem fog ki rajtam. Anyunál is megcsináltam annak idején.<br>Fehérből meg könnyű színeset csinálni.</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Ahogy gondolod. Kaja van?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Volt már olyan, hogy nem volt?</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Képzeld, Gáborék mennek Lengyelbe jövő hónapban. Mehetnénk velük mi<br>is. Mit szólsz hozzá? Egy kis kirucc....</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Nem hiszem, hogy ez most jó ötlet...</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Miért ne lenne? Csak egy pár nap. Kimozdulnánk... Szerintem jót tenne<br>neked is. Elhozhatnád az új bordó cuccot is... Emlékszel, mennyit<br>csatangoltunk régen kettesben? Hogy szerettél utazni! Hány helyen jártunk,<br>milyen helyeken aludtunk...</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Ja... Gondtalanok voltunk. Jó nekünk most itthon! A kicsinek<br>állandóságra van szüksége...</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Nem gondtalanok, csak másféle problémák... Nem kell most azonnal...<br>Gondolkodj rajta. Jövő héten elég.... De akkor muszáj, foglalni kell<br>szállást. Meg nem mindegy, hány kocsival.</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Ja, persze, én gondoljam át, rajtam múljon, így aztán az én hibám, ha<br>nemet mondunk. Mert a nehezebb döntéseket mindig elegánsan átruházod.</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Megint ezzel jössz?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Mert mindig így van. Ebből következően, ha igent mondunk, és mégsem<br>jól sül el, akkor is én vagyok a hibás. A nemről nem is beszélve. Baráti<br>kérdésre meg a te szádból nincsen nem...</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Témánál vagyunk...    <span class="instruction-in-text">(bedobja a sörös üveget a kukába, a sör<br>szétfröccsen, kimegy)</span></div>
+    </div>
+    <h2 class="scene-heading">3.JELENET</h2>
+    <h2 class="scene-heading">MÁSNAP DÉLELŐTT</h2>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Szia anya! Hát te?</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Erre jártam, gondoltam benézek. Fúú, mi ez a szag? Csoda, ha Arinka<br>nem kábul el benne.</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Kész lettem a gyerekszobával. Ja, ő a mi hálónkban van.</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Hát akkor azt érzem... a festéket.... Olyan szép idő van, hét ágra<br>süt... Kivisszük a picit? Úgy sétálnék egyet!</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Hát jó. Hozom a kicsit. Segítesz? Várj! Te hozd a babakocsit! Ne<br>aggódj, nem nehéz, szerintem sikerült a legkönnyebbet kiválasztanunk.<br>Várj, belerakom a takaróját, meg a cumisüveget. Oké, viheted. Hozom a<br>picit.<br><span class="instruction-in-text">(leérnek)</span><br>Még jó, hogy nem a negyediken lakunk... Így ni... Várjál picikém, mindjárt,<br>mindjárt...<span class="instruction-in-text">(a kicsihez)</span> Betakar anya, szépen,  alukáljál egyet… <span class="instruction-in-text">(halkan<br>énekel)</span><br>Szunnyadj, kisbaba,<br>őriz halk szoba,<br>zsongó éjszaka,<br>csillagfény.<br><span class="instruction-in-text">(Weöres Sándor: Szunnyadj, kisbaba)</span><br><span class="instruction-in-text">(Anyjához: )</span>  Akarod te tolni?<br>Anya, én milyen baba voltam? Úgy értem... sírós vagy nyugodt? Hasfájós?<br>Gyakran fenn voltam éjjel?</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Hát, reggeli kávét nemigen kellett innom... <span class="instruction-in-text">(nevet)</span> igazából a<br>reggelekre sem emlékszem. Az éjszakák..na, azok kemények voltak...  Apád<br>hajnali ötre járt dolgozni, napközben csak a legfontosabb dolgokat tudtam<br>elvégezni, míg elvoltál a járókában, aztán visszaaludtunk... néha csak<br>akkor ébredtem fel, mikor hazaért. Kimerítő időszak volt, az biztos, nem<br>fűznek hozzá romantikus emlékek.</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Nem bánta, hogy lánya lett?</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Apád? Mindig a hercegnője voltál.</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">A családnak is meg kell születnie. Mindig ezt mondogattad nekem,<br>emlékszel?</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Ez most hogy jutott eszedbe? Amúgy.... Dani mostanában olyan<br>feszültnek tűnik... Idegesnek, vagy ilyesmi. Bár ritkán találkozunk, de nem<br>tetszik nekem, ahogy időnként reagál. Az a munka nem tesz jót neki. A sok<br>rab felidegesíti. Biztos találna mást is. Ugye... nem agresszív veled?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Anya, ez most komoly? Ezért jöttél, hogy megkérdezd, hogy a férjem<br>vadállat-e? Azért, mert ott dolgozik? Hahó, anya, ő a jó oldalon áll!<br>Persze, neki se könnyű... a kudarcok, meg a terápia... meg a folyamatos<br>készenlét benn... a fogvatartottak se könnyítik meg... Érthető, ha néha<br>türelmetlen vagy feszült.</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Amúgy... Nekünk se sikerült minden azonnal. Mindenhez idő kellett. Nálatok<br>is kialakul majd…meglátod. Nem hajtod le a tetőt? Befúj a szél...</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Jó idő van... Anya, nálatok minden más volt… Ti idősebbek voltatok,<br>amikor születtem. Mennyi voltál? Harminc?</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Huszonnyolc.</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Gondolom, egyből összejöttem. <span class="instruction-in-text">(nevet)</span> Apa még idősen is rajongott<br>érted. A tenyerén hordott.</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Amíg te meg nem születtél... Amúgy meg... azért apád elég nehezen<br>nyugodott meg..</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Megnyugodni? Miért kellett neki megnyugodni?</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Hát...nem is tudom...nem beszéltem még eddig róla.. Jóformán<br>senkinek. Mert nehéz. De most szeretném, hogy tudd. Már úgyis mindegy....<br>Nekem harminc évvel ezelőtt is született egy gyerekem… egy kisfiú…</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Micsoda? Akkor te...  a húszas éveid elején járhattál...</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Egészségesen született, időre. Szép, fejlett baba volt.. De<br>elveszítettük. Meghalt. Két hónapos korában. Bölcsőhalál...</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Nem... És ezt...ezt miért nem mondtad nekem soha?</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Még most sem volt könnyű… Meg aztán apádnak is megígértem..Ő akarta,<br>hogy ne beszéljünk róla. Túlságosan fájdalmas... Akkor költöztünk ebbe a<br>kerületbe.</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">És az nem jutott eszedbe eddig, hogy erről azért nekem is tudnom<br>kellett volna? Hogy jogom lett volna megtudni?</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Apádnak megígértem..de most, hogy már ő sincs....mindegy. Talán<br>együtt vannak valahol...</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text"><span class="instruction-in-text">(hangosabban)</span><br>Anya, nem gondolod, hogy ez… ez a titok.... egy csomó dologra<br>hatással lehetett? A vizsgálatok, a terápia...</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Ssss...ne kiabálj... a csecsemő érzi a feszültséget.... nem volt<br>könnyű nekem se...hidd el. Drága volt a gyógyulás. Az egyetemen tanultam<br>pszichológiát. Éppen ezért mondtam neked, hogy jobb lenne, ha szakemberre<br>hallgatnál barátnő helyett...</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Eddig minden tanácsa bevált...</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Azzal az akciós ruhákat árusító kis bolttal kapcsolatosan nekem is.</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Sose kedvelted őt.</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">A sütijei egész finomak.</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Anya, Ivett okosabb, mint hinnéd! Éveken át tanult. Hiszek neki, hogy<br>most is célt érünk az ötletével. Nincs veszítenivalónk, minden mást<br>próbáltunk már. És ez nem nehéz... Csak szeretni kell és kész... de jó is<br>lenne... <span class="instruction-in-text">(megigazítja a takarót a kicsin)</span> Ugye, milyen szép? Milyen nagyon<br>édes, amikor alszik?</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Gyászoltunk. Sokáig. Aztán meg..nem mertünk próbálkozni. Mikor újból<br>állapotos lettem, apád folyton aggódott. Végigaggódta a terhességet, a<br>szülést. és azt hiszem a következő huszonöt évet is. Ezért nem is született<br>több testvéred.</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Én erről az egyről se tudtam..  <span class="instruction-in-text">(Pici szünet)</span>     Jajj, anya, ez<br>szörnyű. Sajnálom.</div>
+    </div>
+    <div class="line dialogue character-NO_ANYJA">
+      <div class="speaker">A NŐ ANYJA</div>
+      <div class="text">Hajtsd le a tetejét, fúj a szél.</div>
+    </div>
+    <h2 class="scene-heading">4.JELENET</h2>
+    <h2 class="scene-heading">DÉLUTÁN</h2>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Hahó, megjöttem. Te jó ég, mi ez a festékszag? Hogy lehet ebben<br>létezni?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Meglepetééés! Ta-daaam..! <span class="instruction-in-text">(benyit a gyerekszobába és bemutat)</span></div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Kék?! Te kékre festetted a gyerekszobát?! Ez komoly?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text"><span class="instruction-in-text">(zavartan)</span> Nem tetszik? Azt hittem, szereted a kéket...</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Érdekel is téged, hogy én mit szeretek…<br>Hol van?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Még festés előtt megfürdettem. Nemrég megetettem, aztán sokáig<br>ringattam. Most meg az ágyunkban van. Miért?  Zöldre kellett volna?</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Kicsit ledőlök. Elegem van a mai napból. Fáradt vagyok. Remélem, nem<br>vársz tőlem ma már semmit. A csapot majd holnap megnézem. Most nincs hozzá<br>erőm.</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">De...megígérted, hogy este sétálunk egyet a parkban hármasban.</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Nem fog menni, most nem… Nyakunkon az átszervezés. Iszonyatos a<br>stressz odabenn. A kamerák se könnyítik meg, állandóan csekkolnak minket...<br>El se tudod képzelni, mi van ott...</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Te ebből állsz. Dolgozol. Pihensz. Aztán megint dolgozol, hogy utána<br>pihenhess. Halló! Te is akartál családot. Család lettünk! Szükségünk van<br>rád!</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Te érted, miről beszélek? Dehogy érted...hagyjuk is...<br><span class="instruction-in-text">(bemegy a szobába, lepihen)</span></div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text"><span class="instruction-in-text">(Odakinn dühöng)</span> Hogyne, az úr pihenni vágyik, pihen. Ha enni vágyik,<br>semmi akadálya, a bejárónő megfőzött, lehet enni. Van tiszta ruha, pihe-<br>puha ágyikó, csönd, ami körbevesz. Minden van, minden adott, mindent<br>lehet...</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Miért csinálod ezt?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Egy dolgot nem lehet... Egyetlen egyet nem lehet csak....</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Befejezed..?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">… amit én szeretnék. Na, azt nem lehet... Mert az én akaratom semmit<br>sem számít...</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text"><span class="instruction-in-text">(Kivágtat, és közbennököllel belevág a falba)</span> A rohadt életbe! A<br>büdös, rohadt életbe! Semmit, semmit nem kértem tőled, csak egy kicsi<br>nyugalmat. De nem.. az itt nincsen.... <span class="instruction-in-text">(elrohan)</span></div>
+    </div>
+    <h2 class="scene-heading">UGYANAZ NAP ÉJSZAKA</h2>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Alszol?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Nem. Hogy tudnék...</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Mert? Tán rossz a lelkiismereted?  <span class="instruction-in-text">(alig bírja kimondani, ittas)</span></div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Te ittál? Részeg vagy?</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Részeg, ja.  Két sörtől... Hol van?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Nem vetted észre? Ott jöttél el mellette. A babafészekbe tettem. A<br>gyerekszoba fala még szárad, ott nem alhat.</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Ja, ott kurvára nem alhat....  <span class="instruction-in-text">(röhög)</span></div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Marha vicces… Örülök, hogy jól szórakozol... De tudom, nem a te<br>problémád. Csak tudnám, miért mentél bele, ha nem akarsz családot...</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Miért csinálod ezt?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Mit? Miért kérem számon, amiben megegyeztünk? Mert így állapodtunk<br>meg. De úgy tűnik, téged senki és semmi nem érdekel magadon kívül. Csak a<br>munka.. meg a haverok. Neked  nem itthon, hanem benn van a családod..A<br>kibaszott munkahelyen, meg a kocsmában. Aztán persze jöhet a döglés, a<br>tévé..ja, meg újabban a pia..</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text"><span class="instruction-in-text">(agresszív, elkapja a nő csuklóját, megszorítja)</span><br>Befejezed?!</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Ááá, ez fáj..! Engedj már el, te állat!</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Mért kell neked túlfeszíteni, hm? Miért nem tudsz leállni?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Nem a munkahelyeden vagy! Ott erősködjél.</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text"><span class="instruction-in-text">(lefogja a nő mindkét karját, erősen leszorítja az ágyra és<br>belekiabál az arcába)</span><br>E – le - gem van! Nem érted?!<br><span class="instruction-in-text">(elengedi a nőt)</span></div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text"><span class="instruction-in-text">(dörzsölgeti a piros csuklóit, miközben kimegy a nappaliba)</span><br>Dögölj meg...</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text"><span class="instruction-in-text">(beájul az ágyba)</span><br>Örömmel....</div>
+    </div>
+    <h2 class="scene-heading">JELENET</h2>
+    <h2 class="scene-heading">MÁSNAP KÉSŐ DÉLUTÁN</h2>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text"><span class="instruction-in-text">(másnap hazaérkezik, azt látja, ott van egy idegen  férfi)</span><br>Hello. Kit tisztelhetek az úrban?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Ő itt Zsolt. Festőművész. Meg a falakhoz is ért. Megnézi. Mert mégis<br>jobb lenne rózsaszín… A kéket le kell szedni valahogy, azt én nem tudom<br>megcsinálni. Zsolt azt mondta, segít.</div>
+    </div>
+    <div class="line dialogue character-ZSOLT_FESTO">
+      <div class="speaker">ZSOLT</div>
+      <div class="text">Hello</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRI</div>
+      <div class="text">Hello, művész úr. <span class="instruction-in-text">(A nőhöz:)</span> És én miért nem tudok róla, hogy idegen<br>férfi fogad itthon?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Mikor is mondhattam volna? A tegnap este nem annyira volt alkalmas a<br>konstruktív beszélgetésre...ha rémlik még valami belőle...</div>
+    </div>
+    <div class="line dialogue character-ZSOLT_FESTO">
+      <div class="speaker">ZSOLT</div>
+      <div class="text">Akkor én most megyek. Jövő hét kedden jövök..ha mindkettőtöknek jó,<br>persze</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Nekem kifejezetten, délutános leszek, úgyhogy nem kell sietned,<br>ráérsz, akár éjszakába is nyúlhat a művészet...</div>
+    </div>
+    <div class="line dialogue character-ZSOLT_FESTO">
+      <div class="speaker">ZSOLT</div>
+      <div class="text"><span class="instruction-in-text">(el)</span><br>Sziasztok</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Ezt most miért kellett?</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Hogy került elő éppen most ez a segítőkész festőművész?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Osztálytársam volt gimiben. Kiállítása lesz a városban. Küldött<br>meghívót messengeren, beszélgettünk...ő ajánlotta, hogy megnézi a szobát..</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Aha. Szóval nem akartál adósa maradni, eért te pedig meghívtad a mi<br>kiállításunkra...Nagyszerű....Mire jutottál Lengyelországgal?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Komolyan, neked ez a legfontosabb? Lengyelország? Tudod mit? Marhára<br>nem gondolkodtam rajta. Nekem, ellentétben veled, nincs időm ilyenekre.</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Mert? Mire van? A művészetre? Esetleg ránk..?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Igazából nincs is min gondolkodni. Nem vagyunk abban a....</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Abban a miben?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">.. abban a helyzetben.. itt van a kicsi..meg a festés..</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">A festés... Tegnap festetted kékre. Színeset akartál, meglett. Mi<br>bajod van a kékkel?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Fiús..túlságosan fiús..</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Nem kurvára mindegy?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Neked. Neked mindegy..minden..</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Ne kezd ezt... Oké, oké,  Lengyel sztornó... De menjünk el valahová.<br>Csak mi ketten...  A hét közepén még dolgozom. De péntekre kérek egy nap<br>szabit. Utazzunk el valahová.. Egy hosszú hétvégére.. Csak három nap.<br>Festés úgyis csak a jövő héten lesz....</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">De a kicsi...</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">A kicsi. A kicsi... a kicsi akár anyádnál is maradhatna három napra.<br>Nem szopik... Nem szenved hiányt semmiben… Semmi baja nem lesz. Sőt.</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Neki állandóság kell. Napirend. Velünk.</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Állandóság. Azért festeted át a szobáját egy héten belül<br>harmadjára..aha..</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Az más. Az olyan, mint a név….meg kell találni mindenkihez a<br>megfelelőt.  Ahogy a mi kisbabánknak is.... Egyből tudtam, hogy csak Arinka<br>lehet... A karjaidba veszed, magadhoz öleled... sétálsz vele, és azonnal<br>működésbe lép az ösztön... beindulnak a hormonok... Legalább<br>kipróbálhatnád...</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Oké. Az utazáshoz mit szólsz?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Ne haragudj, de nekem ez most nem megy... Szeretnék a családra<br>koncentrálni. A babára. És te? Te mit teszel meg érte? Értünk? A családot,<br>azt te is akartad... A gyógyszertől beszartál, a terápiát untad....Csak<br>szeretni kellene és minden jönne magától... Szeretni. Érted? Nincs benne<br>rizikó! Mit veszíthetünk?</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Az ég-világon semmit! Csak egymást...</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Hozzá kell szoknunk a kicsihez... Neked is jobb lenne...</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">...ne mondd meg, mi lenne jobb nekem!!</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">…. ne ordíts, mert....</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Mert?? Felébred a kicsi? Sírni fog a kicsi? Szegény kicsi... ő a<br>kifogás mindenre... egy tökeletes alibi, igaz..?</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Érzéketlen vagy!</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Érzéketlen? Én? Valóban? <span class="instruction-in-text">(Hűtőhöz megy, kivesz egy üveg vodkát,<br>alaposan meghúzza)</span> Nem is tudom, miért mentem bele ebbe... Ebbe a kudarcra<br>ítélt kísérletbe.... Az a nagyokos Ivett meg a fantasztikus ötletei!</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Mi az, már napközben is iszol?! Anya jól ráérzett az újonnan született<br>agressziódra.</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Anyád...Anyád csak magával foglalkozik. Nem veszed észre? Tömi a<br>fejed a hülyeségeivel...  Egészségesebb lenne több háztömb távolság....</div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text">Persze én bevédtelek...</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Elegem van! Érted? Elegem van! Belőled meg a falfestészetedből! Lehet, hogy<br>inkább engem kellene átfestened. Valaki mássá... Vagy tudod mit? Fessünk!<br>Fessük be együtt a falat! Fessük feketére! Az a szín igazán karakteres,<br>erős, és határozottan, baromira illik hozzánk! Na, mit szólsz? Egy kis<br>közös kreatívkodás? És nem kell, hogy megálljunk a falnál! <span class="instruction-in-text">(Meghúzza ismét<br>az üveget, nevet, mint aki bekattant)</span> Befesthetjük mindjárt az ágyat, a<br>bölcsőt is... meg a bútorokat…. meg akár a másik szobát is… meg…. <span class="instruction-in-text">(berohan<br>abba a szobába, ahol a kicsi fekszik)</span></div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text"><span class="instruction-in-text">(sikolt)</span><br>Azonnal gyere ki! Hagyd őt békén!</div>
+    </div>
+    <div class="line dialogue character-FERFI">
+      <div class="speaker">FÉRFI</div>
+      <div class="text">Miért is?! Már teljesen bediliztél! Nem veszed észre?!  Egy délibábot<br>simogatsz! Illúziót dajkálsz! Van, és mégsincs! És a megjátszástól nem is<br>lesz! És miatta nem férek hozzád! Ő az oka mindennek!  <span class="instruction-in-text">(felkapja az ágyból<br>a kicsit és kidobja az ablakon)</span></div>
+    </div>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text"><span class="instruction-in-text">(sikít)</span><br>Neee! <span class="sfx-list"><button class="sfx" type="button" data-sound="sikitas.mp3">▶ sikitas</button></span></div>
+    </div>
+    <h2 class="scene-heading">UTOLSÓ JELENET</h2>
+    <h2 class="scene-heading">KÉSŐBB</h2>
+    <div class="line dialogue character-NO">
+      <div class="speaker">NŐ</div>
+      <div class="text"><span class="instruction-in-text">(ölében a visszahozott baba, próbálja visszavarrni a karját, ami<br>leszakadt, közben halkan énekel)</span><br>Szunnyadj, kisbaba,<br>őriz halk szoba,<br>zsongó éjszaka,<br>csillagfény.<br>Hold jár egymaga,<br>rád hull fátyola,<br>álmodj, kisbaba,<br>tündérkém.<br>Nagy a menny<br>ablaka,<br>süt a hold<br>éjszaka,<br>letekint<br>egymaga:<br>„Alugyál<br>kisbaba!”<br>(Weöres Sándor: Szunnyadj, kisbaba)</div>
+    </div>
+      </section>
+
+    </main>
+
+    <script src="js/prompter.js"></script>
+  </body>
+</html>

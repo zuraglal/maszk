@@ -1,0 +1,553 @@
+/*
+  Hidak Istene – súgómonitor stíluslap
+  ------------------------------------
+  Célok:
+  - fekete háttér
+  - nagyítható, jól olvasható betűk
+  - szereplőnként eltérő szín
+  - mobilon és súgómonitoron is használható tördelés
+*/
+
+/* ================================
+   1. Alap beállítások
+   ================================ */
+
+:root {
+  --bg: #000;
+  --fg: #f7f7f7;
+  --muted: #b8b8b8;
+  --border: #333;
+
+  --font-size: 32px;
+  --line-height: 1.42;
+  --name-width: 9.5ch;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+}
+
+a,
+a:visited {
+  color: #9bb7ff;
+}
+
+/* ================================
+   2. Felső vezérlősáv
+   ================================ */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0.35rem 0.55rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.92);
+
+  font-size: max(14px, 0.48em);
+  backdrop-filter: blur(6px);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+button,
+.button {
+  display: inline-flex;
+  gap: 0.25rem;
+  align-items: center;
+
+  padding: 0.28rem 0.48rem;
+  border: 1px solid #555;
+  border-radius: 0.35rem;
+
+  background: #171717;
+  color: #fff;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button:hover,
+.button:hover {
+  background: #262626;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+input[type="range"] {
+  width: 180px;
+  max-width: 34vw;
+}
+
+/* ================================
+   3. Oldalváza és fejléc
+   ================================ */
+
+.wrap {
+  width: min(1500px, 100%);
+  margin: 0 auto;
+  padding: 1rem 0.8rem 5rem;
+}
+
+.hero {
+  margin: 1.3rem 0 1.8rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 0.1em 0 0.05em;
+  font-size: 1.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+h2 {
+  margin: 0.3em 0;
+  color: #ddd;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.meta,
+.cast {
+  color: var(--muted);
+  font-size: 0.72em;
+}
+
+/* ================================
+   4. Szereplőlista
+   ================================ */
+
+.cast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.4rem;
+
+  max-width: 980px;
+  margin: 1rem auto 1.2rem;
+  text-align: left;
+}
+
+.cast-card {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--border);
+  border-left-width: 0.35rem;
+  border-radius: 0.45rem;
+  background: #0b0b0b;
+}
+
+.cast-role {
+  display: inline-block;
+  padding: 0.05em 0.28em;
+  border: 2px solid currentColor;
+  border-radius: 0.35rem;
+
+  background: color-mix(in srgb, currentColor 18%, transparent);
+  font-weight: 800;
+  text-shadow: 0 0 0.35em currentColor;
+}
+
+.cast-desc {
+  margin-top: 0.15rem;
+  color: #bbb;
+  font-size: 0.82em;
+}
+
+/* ================================
+   5. Szövegkönyv tördelése
+   ================================ */
+
+.script {
+  margin-top: 1rem;
+}
+
+.line {
+  display: grid;
+  grid-template-columns: var(--name-width) 1fr;
+  gap: 0.8rem;
+  align-items: start;
+
+  margin: 0.26em 0;
+}
+
+.speaker {
+  overflow-wrap: anywhere;
+  text-align: right;
+  font-weight: 800;
+  white-space: normal;
+}
+
+.text {
+  min-width: 0;
+  color: inherit;
+}
+
+/*
+  A teljes megszólalás a szereplő saját színét örökli.
+  Ezért kapja a .dialogue sor a character-* osztályt.
+*/
+.dialogue .text {
+  font-weight: 500;
+}
+
+.dialogue .speaker {
+  display: inline-block;
+  padding: 0.05em 0.28em;
+  border: 2px solid currentColor;
+  border-radius: 0.35rem;
+
+  background: color-mix(in srgb, currentColor 18%, transparent);
+  text-shadow: 0 0 0.35em currentColor;
+}
+
+/* Színpadi utasítás */
+.stage {
+  color: #fff;
+  font-style: italic;
+  opacity: 0.96;
+}
+
+.stage .text {
+  padding: 0.25em 0.55em;
+  border-left: 3px solid #666;
+  border-radius: 0.25rem;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+/* Szöveg közbeni instrukció */
+.instruction-in-text {
+  padding: 0 0.12em;
+  border-radius: 0.2em;
+  background: rgba(255, 255, 255, 0.11);
+
+  color: #fff;
+  font-style: italic;
+}
+
+/* Szereplőnév említése instrukcióban */
+.mention {
+  font-style: normal;
+  font-weight: 800;
+}
+
+/* ================================
+   6. Hanggombok
+   ================================ */
+
+.sfx-list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+
+  margin-left: 0.45rem;
+  vertical-align: middle;
+}
+
+.sfx {
+  padding: 0.15em 0.38em;
+  border-color: #777;
+  background: #202020;
+  color: #fff;
+  font-size: 0.75em;
+}
+
+.sfx.missing {
+  border-color: #7b4d4d;
+  color: #f0b0b0;
+}
+
+.sound-help {
+  margin: 1rem 0;
+  padding: 0.65rem;
+  border: 1px dashed #555;
+  border-radius: 0.45rem;
+
+  background: #090909;
+  color: #bbb;
+  font-size: 0.62em;
+}
+
+.sound-help code {
+  padding: 0.05rem 0.2rem;
+  border-radius: 0.2rem;
+  background: #222;
+  color: #fff;
+}
+
+/* ================================
+   7. Olvasó mód
+   ================================ */
+
+.reading-mode .stage {
+  display: none;
+}
+
+.reading-mode .topbar {
+  opacity: 0.35;
+}
+
+.reading-mode .topbar:hover {
+  opacity: 1;
+}
+
+.footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+
+  color: #aaa;
+  font-size: 0.62em;
+}
+
+/* ================================
+   8. Szereplőszínek
+   ================================ */
+
+.character-ZSOLT {
+  color: #ff6b6b;
+}
+
+.cast-card.character-ZSOLT {
+  border-left-color: #ff6b6b;
+}
+
+.character-IR_N {
+  color: #65d6ff;
+}
+
+.cast-card.character-IR_N {
+  border-left-color: #65d6ff;
+}
+
+.character-SUTYI {
+  color: #ffd166;
+}
+
+.cast-card.character-SUTYI {
+  border-left-color: #ffd166;
+}
+
+.character-RPI_B_CSI {
+  color: #baff8a;
+}
+
+.cast-card.character-RPI_B_CSI {
+  border-left-color: #baff8a;
+}
+
+.character-MIL_N {
+  color: #c792ea;
+}
+
+.cast-card.character-MIL_N {
+  border-left-color: #c792ea;
+}
+
+.character-SUTYI_F_N_KE {
+  color: #ff9f43;
+}
+
+.cast-card.character-SUTYI_F_N_KE {
+  border-left-color: #ff9f43;
+}
+
+/* ================================
+   9. Mobilnézet
+   ================================ */
+
+@media (max-width: 760px) {
+  :root {
+    --font-size: 22px;
+    --name-width: auto;
+  }
+
+  .line {
+    grid-template-columns: 1fr;
+    gap: 0.05rem;
+    margin: 0.62em 0;
+  }
+
+  .speaker {
+    text-align: left;
+    font-size: 0.78em;
+    letter-spacing: 0.03em;
+  }
+
+  .stage .speaker {
+    display: none;
+  }
+
+  .wrap {
+    padding: 0.7rem 0.65rem 5rem;
+  }
+
+  .topbar {
+    position: sticky;
+  }
+
+  input[type="range"] {
+    width: 130px;
+  }
+}
+
+/* ================================
+   10. Nagy monitor / súgómonitor
+   ================================ */
+
+@media (min-width: 1600px) {
+  :root {
+    --font-size: 44px;
+  }
+
+  .wrap {
+    width: min(1900px, 100%);
+  }
+}
+
+/* ================================
+   11. Nyomtatási nézet
+   ================================ */
+
+@media print {
+  .topbar,
+  .sound-help,
+  .sfx-list {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 14pt;
+  }
+
+  .stage .text {
+    border-left: 2px solid #999;
+    background: #fff;
+  }
+
+  .dialogue,
+  .dialogue .text {
+    color: #000 !important;
+  }
+
+  .dialogue .speaker {
+    border-color: #000;
+    background: #fff;
+    text-shadow: none;
+  }
+}
+
+
+/* ================================
+   11. Jelenetcímek
+   ================================ */
+
+.scene-heading {
+  margin: 1.6em 0 0.75em;
+  padding: 0.35em 0.5em;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+
+/* ================================
+   12. További darabok szereplőszínei
+   ================================ */
+
+.character-RENDEZO {
+  color: #ff7a59;
+}
+
+.cast-card.character-RENDEZO {
+  border-left-color: #ff7a59;
+}
+
+.character-DERKE {
+  color: #7ee7ff;
+}
+
+.cast-card.character-DERKE {
+  border-left-color: #7ee7ff;
+}
+
+.character-ARNYEK {
+  color: #c6a8ff;
+}
+
+.cast-card.character-ARNYEK {
+  border-left-color: #c6a8ff;
+}
+
+.character-NO {
+  color: #ff8fc7;
+}
+
+.cast-card.character-NO {
+  border-left-color: #ff8fc7;
+}
+
+.character-FERFI {
+  color: #72d6ff;
+}
+
+.cast-card.character-FERFI {
+  border-left-color: #72d6ff;
+}
+
+.character-NO_ANYJA {
+  color: #ffd166;
+}
+
+.cast-card.character-NO_ANYJA {
+  border-left-color: #ffd166;
+}
+
+.character-ZSOLT_FESTO {
+  color: #9df27d;
+}
+
+.cast-card.character-ZSOLT_FESTO {
+  border-left-color: #9df27d;
+}
+
+.character-RADIO {
+  color: #bbbbbb;
+}
+
+.cast-card.character-RADIO {
+  border-left-color: #bbbbbb;
+}
