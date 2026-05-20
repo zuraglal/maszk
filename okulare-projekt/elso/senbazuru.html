@@ -1,7 +1,6 @@
 <!doctype html>
 <!--
-  Senbazuru – súgómonitor oldal
-  A kód szándékosan tagolt, hogy kézzel is könnyen szerkeszthető legyen.
+  Senbazuru – súgómonitor
 -->
 <html lang="hu">
   <head>
@@ -14,7 +13,7 @@
   <body>
     <nav class="topbar" aria-label="Súgómonitor vezérlők">
       <div>
-        <a class="button" href="index.html">← Index</a>
+        <a class="button" href="index.html">← Főoldal</a>
         <strong>Senbazuru</strong>
       </div>
 
@@ -32,13 +31,13 @@
     <main class="wrap">
       <header class="hero">
         <h1>Senbazuru</h1>
-        <h2>1000 daru<br/>“A szárnyaidra írom, hogy ‘béke’, és te átrepülöd az egész világot.”<br/>Sadako Sasaki</h2>
+        <h2>1000 daru<br/>“A szárnyaidra írom, hogy «béke», és te átrepülöd az egész világot.”<br/>Sadako Sasaki</h2>
       </header>
 
       <section class="cast-grid" aria-label="Szereplők">
       <article class="cast-card character-RENDEZO">
         <div class="cast-role">RENDEZŐ</div>
-        <div class="cast-desc">ötvenes figura; csapongó, önfejű, bohókás</div>
+        <div class="cast-desc">ötvenes figura; csapongó, önfejű, ellentmondást nem tűrő, de bohókás</div>
       </article>
       <article class="cast-card character-DERKE">
         <div class="cast-role">DÉRKE</div>
@@ -46,27 +45,15 @@
       </article>
       <article class="cast-card character-ARNYEK">
         <div class="cast-role">ÁRNYÉK</div>
-        <div class="cast-desc">virtuóz színjátszók / kórus / mozgásszínházi csapat</div>
+        <div class="cast-desc">virtuóz színjátszók; több szereplő, ideálisan egy csapat színész, akár táncosok vagy artisták. Megszólalásai feloszthatóak, kórusként, vagy kánonszerűen is előadhatók. Mozgásai szabadon értelmezhetőek, előadásmódja lehet akár tánc, báb, árnyjáték, vagy bármi, aminek a képzelet nem szab határt.</div>
       </article>
       </section>
 
       <section class="script" aria-label="Szövegkönyv">
-    <div class="line dialogue character-RENDEZO">
-      <div class="speaker">RENDEZŐ</div>
-      <div class="text">ötvenes figura - csapongó, önfejű, ellentmondást nem tűrő, de bohókás</div>
-    </div>
-    <div class="line dialogue character-DERKE">
-      <div class="speaker">DÉRKE</div>
-      <div class="text">tündérlány - szomorú, de kényszeresen pozitív</div>
-    </div>
-    <div class="line dialogue character-ARNYEK">
-      <div class="speaker">ÁRNYÉK</div>
-      <div class="text">virtuóz színjátszók - Több szereplő, ideálisan egy csapat színész, akár táncosok vagy artisták. Megszólalásai feloszthatóak, kórusként, vagy kánonszerűen is előadhatók. Mozgásai szabadon értelmezhetőek, előadásmódja lehet akár tánc, báb, árnyjáték, vagy bármi, aminek a képzelet nem szab határt.</div>
-    </div>
     <h2 class="scene-heading">1. Árnyrendező</h2>
     <div class="line stage">
       <div class="speaker"></div>
-      <div class="text">Árnyék különböző élőképeket jelenítenek meg. Először egy kastélyt formálnak. Rendező járkál, vizsgálja a készülő képet, gondolkodik. Árnyék folyamatosan helyezkednek, változtatgatják az alakzatot. Rendező folyamatosan instruál, akár belelép a képekbe, helyezgeti őket, megmutatja mire gondol. Közben építkezés zajai szűrődnek be a jelenetbe, Rendezőt időnként megszakítják, aki egyre feszültebben reagál. <span class="sfx-list"><button class="sfx" type="button" data-sound="epitkezes_zaj.mp3">▶ epitkezes zaj</button><button class="sfx" type="button" data-sound="zaj.mp3">▶ zaj</button></span></div>
+      <div class="text">Árnyék különböző élőképeket jelenítenek meg. Először egy kastélyt formálnak. Rendező járkál, vizsgálja a készülő képet, gondolkodik. Árnyék folyamatosan helyezkednek, változtatgatják az alakzatot. Rendező folyamatosan instruál, akár belelép a képekbe, helyezgeti őket, megmutatja mire gondol. Közben építkezés zajai szűrődnek be a jelenetbe, Rendezőt időnként megszakítják, aki egyre feszültebben reagál. <span class="sfx-list"><button class="sfx" type="button" data-sound="epitkezes_zaja.mp3">▶ epitkezes zaja</button></span></div>
     </div>
     <div class="line dialogue character-RENDEZO">
       <div class="speaker">RENDEZŐ</div>
@@ -87,7 +74,7 @@
     </div>
     <div class="line dialogue character-DERKE">
       <div class="speaker">DÉRKE</div>
-      <div class="text"><span class="instruction-in-text">(megemeli mutatóujját)</span> Dérke, nem Tündérke. Nevet változtattam. Simán csak Dérke a nevem. Üdvözöllek Rendező!</div>
+      <div class="text"><span class="instruction-in-text">(megemeli mutatóujját)</span> Dérke, nem Tündérke. Nevet változtattam. Simán csak Dérke a nevem. Üdvözöllek, Rendező!</div>
     </div>
     <div class="line dialogue character-RENDEZO">
       <div class="speaker">RENDEZŐ</div>
@@ -139,7 +126,9 @@
     </div>
     <div class="line dialogue character-RENDEZO">
       <div class="speaker">RENDEZŐ</div>
-      <div class="text">Fogós kérdés. Kellene valami fogas téma. <span class="instruction-in-text">(gondolkodik)</span> Ne vegyék hencegésnek, de számtalan igazán fogas történet lapul a kalapom alatt. Lássuk csak… Mennyi időnk van hátra? Fürdővíz eresztésének hangja szűrődik be. Dérke összerezzen. <span class="sfx-list"><button class="sfx" type="button" data-sound="furdoviz.mp3">▶ furdoviz</button></span></div>
+      <div class="text">Fogós kérdés. Kellene valami fogas téma. <span class="instruction-in-text">(gondolkodik)</span> Ne vegyék hencegésnek, de számtalan igazán fogas történet lapul a kalapom alatt. Lássuk csak… Mennyi időnk van hátra? 
+<span class="instruction-in-text">(Fürdővíz eresztésének hangja szűrődik be. Dérke összerezzen.)</span>
+<span class="sfx-list"><button class="sfx" type="button" data-sound="furdoviz.mp3">▶ furdoviz</button></span></div>
     </div>
     <div class="line dialogue character-ARNYEK">
       <div class="speaker">ÁRNYÉK</div>
@@ -147,23 +136,30 @@
     </div>
     <div class="line dialogue character-DERKE">
       <div class="speaker">DÉRKE</div>
-      <div class="text"><span class="instruction-in-text">(sürgetően hozzáfűzi)</span> És egy fogmosásnyi. <span class="sfx-list"><button class="sfx" type="button" data-sound="fogmosas.mp3">▶ fogmosas</button></span></div>
+      <div class="text"><span class="instruction-in-text">(sürgetően hozzáfűzi)</span> És egy fogmosásnyi.</div>
     </div>
     <div class="line dialogue character-RENDEZO">
       <div class="speaker">RENDEZŐ</div>
-      <div class="text">Ejha. Akkor vágjunk is bele! <span class="instruction-in-text">(Rendező hármat tapsol)</span> ‘A három tejfog’: Árnyék színészetbe kezdenek, Dérke figyeli.</div>
+      <div class="text">Ejha. Akkor vágjunk is bele! <span class="instruction-in-text">(Rendező hármat tapsol)</span> ‘A három tejfog’: 
+<span class="instruction-in-text">(Árnyék színészetbe kezdenek, Dérke figyeli.)</span></div>
     </div>
     <div class="line dialogue character-ARNYEK">
       <div class="speaker">ÁRNYÉK</div>
-      <div class="text">Tengeröbölben fehér a fog, színarany zománc a törzsén, színarany zománc a törzsén… Rendező megrázza a fejét. Dérke folyamatosan egyre kétségbeesetten figyeli a jeleneteket és keresi az alkalmat, hogy közbevágjon. Rendező mindig hamarabb leállítja, majd újra is indítja Árnyékat, mielőtt Dérke szóhoz juthatna.</div>
+      <div class="text">Tengeröbölben fehér a fog, színarany zománc a törzsén, színarany zománc a törzsén… 
+<span class="instruction-in-text">(Rendező megrázza a fejét. Dérke folyamatosan egyre kétségbeesetten figyeli a jeleneteket és keresi az alkalmat, hogy közbevágjon. Rendező mindig hamarabb leállítja, majd újra is indítja Árnyékot, mielőtt Dérke szóhoz juthatna.)</span>
+</div>
     </div>
     <div class="line dialogue character-RENDEZO">
       <div class="speaker">RENDEZŐ</div>
-      <div class="text">Inkább legyen a ‘Jelenetek a fogorvosi váróteremből’: Árnyék eljátsszák.</div>
+      <div class="text">Inkább legyen a ‘Jelenetek a fogorvosi váróteremből’: 
+<span class="instruction-in-text">(Árnyék eljátsszák.)</span>
+</div>
     </div>
     <div class="line dialogue character-ARNYEK">
       <div class="speaker">ÁRNYÉK</div>
-      <div class="text">Enni vagy nem enni, ez itt a kérdés. Rendező újra a fejét rázza, Árnyék váltanak.</div>
+      <div class="text">Enni vagy nem enni, ez itt a kérdés. 
+<span class="instruction-in-text">(Rendező újra a fejét rázza, Árnyék váltanak.)</span>
+</div>
     </div>
     <div class="line dialogue character-ARNYEK">
       <div class="speaker">ÁRNYÉK</div>
@@ -171,7 +167,8 @@
     </div>
     <div class="line dialogue character-RENDEZO">
       <div class="speaker">RENDEZŐ</div>
-      <div class="text"><span class="instruction-in-text">(leállítja)</span> Nem jó. "A ló foga": Árnyék váltanak.</div>
+      <div class="text"><span class="instruction-in-text">(leállítja)</span> Nem jó. "A ló foga": 
+<span class="instruction-in-text">(Árnyék váltanak.)</span></div>
     </div>
     <div class="line dialogue character-ARNYEK">
       <div class="speaker">ÁRNYÉK</div>
@@ -179,7 +176,9 @@
     </div>
     <div class="line dialogue character-RENDEZO">
       <div class="speaker">RENDEZŐ</div>
-      <div class="text"><span class="instruction-in-text">(félbeszakítja)</span> Legyen inkább az a mese, amikor az alsó fogsor és a felső fogsor ősi ellenségei egymásnak. Árnyék játszani kezdik az erkélyjelenetet.</div>
+      <div class="text"><span class="instruction-in-text">(félbeszakítja)</span> Legyen inkább az a mese, amikor az alsó fogsor és a felső fogsor ősi ellenségei egymásnak. 
+<span class="instruction-in-text">(Árnyék játszani kezdik az erkélyjelenetet.)</span>
+</div>
     </div>
     <div class="line dialogue character-RENDEZO">
       <div class="speaker">RENDEZŐ</div>
@@ -191,7 +190,9 @@
     </div>
     <div class="line dialogue character-RENDEZO">
       <div class="speaker">RENDEZŐ</div>
-      <div class="text">Hát igen, ez a lényeg. <span class="instruction-in-text">(megadóan)</span> Jó, akkor Diótörő: Tchaikovsky: The Nutcracker - Trepak <span class="instruction-in-text">(Russian Dance)</span> megszólal. Dérke most inkább érdeklődve figyeli ahogy Rendező karmesterként instruál, Árnyék táncolnak, színészkednek. Fokozatosan eldurvul a jelenet. <span class="sfx-list"><button class="sfx" type="button" data-sound="tchaikovsky.mp3">▶ tchaikovsky</button></span></div>
+      <div class="text">Hát igen, ez a lényeg. <span class="instruction-in-text">(megadóan)</span> Jó, akkor Diótörő: 
+<span class="instruction-in-text">Tchaikovsky: The Nutcracker - Trepak (Russian Dance) megszólal. Dérke most inkább érdeklődve figyeli, ahogy Rendező karmesterként instruál, Árnyék táncolnak, színészkednek. Fokozatosan eldurvul a jelenet.</span>
+<span class="sfx-list"><button class="sfx" type="button" data-sound="tchaikovsky.mp3">▶ tchaikovsky</button></span></div>
     </div>
     <div class="line dialogue character-ARNYEK">
       <div class="speaker">ÁRNYÉK</div>
@@ -199,11 +200,10 @@
     </div>
     <div class="line dialogue character-DERKE">
       <div class="speaker">DÉRKE</div>
-      <div class="text">Erre most nincs időnk! Zene hirtelen kiáll. Árnyék abbahagyják a színjátszást, Rendező kissé zaklatott. <span class="sfx-list"><button class="sfx" type="button" data-sound="zene.mp3">▶ zene</button></span></div>
-    </div>
-    <div class="line dialogue character-DERKE">
-      <div class="speaker">DÉRKE</div>
-      <div class="text"><span class="instruction-in-text">(határozott, de igyekszik kedvesen)</span> Sajnálom, ez mind igazán remek ötlet, de ma nem ilyenek kellenek ide.</div>
+      <div class="text">Erre most nincs időnk! 
+<span class="instruction-in-text">(Zene hirtelen leáll. Árnyék abbahagyják a színjátszást, Rendező kissé zaklatott.)</span>
+<span class="instruction-in-text">(határozott, de igyekszik kedvesen)</span>
+ Sajnálom, ez mind igazán remek ötlet, de ma nem ilyenek kellenek ide.</div>
     </div>
     <div class="line dialogue character-RENDEZO">
       <div class="speaker">RENDEZŐ</div>
