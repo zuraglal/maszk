@@ -3,136 +3,107 @@
   Hidak istene – súgómonitor
 -->
 <html lang="hu">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   Hidak istene | súgómonitor
-  </title>
-  <link href="css/prompter.css" rel="stylesheet"/>
- </head>
- <body>
-  <nav aria-label="Súgómonitor vezérlők" class="topbar">
-   <div>
-    <a class="button" href="index.html">
-     ← Főoldal
-    </a>
-    <strong>
-     Hidak istene
-    </strong>
-   </div>
-   <div class="controls">
-    <button id="smaller" type="button">A−</button>
-    <input aria-label="Betűméret" id="fontSlider" max="120" min="16" step="2" type="range" value="32"/>
-    <button id="bigger" type="button">A+</button>
-    <span id="fontValue">32 px</span>
-    <button id="resetSize" type="button">Reset</button>
-    <button id="toggleStage" type="button">Utasítások ki/be</button>
-    <button id="fullscreen" type="button">Teljes képernyő</button>
-   </div>
-  </nav>
-  <main class="wrap">
-   <header class="hero">
-    <h1>
-     Hidak istene
-    </h1>
-    <h2>
-     írta: Stermeczky Eszter
-    </h2>
-    <div class="meta">
-     Jelige: Duna
-    </div>
-    <section aria-label="Szereplők" class="cast">
-     <div class="cast-grid">
-      <div class="cast-card character-ZSOLT">
-       <div class="cast-role character-ZSOLT">ZSOLT</div>
-       <div class="cast-desc">negyvenes édesapa</div>
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Hidak Istene | súgómonitor</title>
+    <link href="css/prompter.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <nav aria-label="Súgómonitor vezérlők" class="topbar">
+      <div>
+        <a class="button" href="index.html">← Főoldal</a>
+        <strong>Hidak Istene</strong>
       </div>
-      <div class="cast-card character-IREN">
-       <div class="cast-role character-IREN">IRÉN</div>
-       <div class="cast-desc">ötvenes szociális munkás</div>
+      <div class="controls">
+        <button id="smaller" type="button">A−</button>
+        <input aria-label="Betűméret" id="fontSlider" max="120" min="16" step="2" type="range" value="32"/>
+        <button id="bigger" type="button">A+</button>
+        <span id="fontValue">32 px</span>
+        <button id="resetSize" type="button">Reset</button>
+        <button id="toggleStage" type="button">Utasítások ki/be</button>
+        <button id="fullscreen" type="button">Teljes képernyő</button>
       </div>
-      <div class="cast-card character-SUTYI">
-       <div class="cast-role character-SUTYI">SUTYI</div>
-       <div class="cast-desc">konyhai kisegítőfiú</div>
-      </div>
-      <div class="cast-card character-ARPI">
-       <div class="cast-role character-ARPI">ÁRPI BÁCSI</div>
-       <div class="cast-desc">hajléktalan</div>
-      </div>
-      <div class="cast-card character-MILAN">
-       <div class="cast-role character-MILAN">MILÁN</div>
-       <div class="cast-desc">tinédzser fiú</div>
-      </div>
-      <div class="cast-card character-SUTYI_FONOKE">
-       <div class="cast-role character-SUTYI_FONOKE">SUTYI FŐNÖKE</div>
-       <div class="cast-desc">csak hang</div>
-      </div>
-     </div>
-    </section>
-   </header>
-
-   <section aria-label="Szövegkönyv" class="script">
-    <div class="line stage">
-     <div class="speaker">
-     </div>
-     <div class="text">
-      A dráma Budapesten éjjel, az Ördög-árok kifolyójánál játszódik, ahonnan tökéletesen rálátni az Erzsébet hídra.
-     </div>
-    </div>
-    <div class="line stage">
-     <div class="speaker">
-     </div>
-     <div class="text">
-      Sötét. Teljes csend. A felkapcsolódó fényforrás egyedül egy idősebb férfi,
-      <span class="mention character-ARPI">ÁRPI BÁCSI</span>
-      arcát világítja meg.
-     </div>
-    </div>
-    <div class="line dialogue character-ARPI">
-     <div class="speaker">
-      ÁRPI BÁCSI
-     </div>
-     <div class="text">
-      Mit keres itt?! Az Ördög végbélnyílása ez, itt köpi ki magából az elhullottakat. Takarodjon innen! Takarodjon, hallja?! El fogja vinni, el fogja vinni magát is. Az Ördög! Elsodorja magával. Éjjelenként Sztüxszé változik a folyó. Menjen már! Jön a vihar.
-     </div>
-    </div>
-    <div class="line stage">
-     <div class="speaker">
-     </div>
-     <div class="text">
-      Ismételt sötétség. Egyelőre csak a kifolyóhoz beszűrődő hanghatásokat halljuk: a közeli Jazz klubból kiszűrődő zenét, az ég dörgését, és egy ijedt férfi,
-      <span class="mention character-ZSOLT">
-       ZSOLT
-      </span>
-      <u>zihálását</u>. A történet folyamán a dörgés egyre hangosabbá válik, és elkezd villámlani is. Csipogás. A színpad közepén felgyullad egy apró fény, majd eltűnik. Néhány másodpercen belül ismét felgyullad. Elégedetlen ciccegés. A fény egy férfi,
-      <span class="mention character-ZSOLT">
-       ZSOLT
-      </span>
-      okosórájából árad. Próbál vele kezdeni valamit, nyomkodja, de nem sötétedik el, vagy ha el is sötétedik, mindig újra felvillan.
-      <span class="mention character-ZSOLT">
-       ZSOLT
-      </span>
-      lejjebb húzza kabátja ujját, hogy eltakarja a fényt. A takarás mögül váratlanul egy zseblámpa fénye világítja meg szórtan. A fény a ruhájáról feltéved az arcára.
-      <span class="mention character-ZSOLT">
-       ZSOLT
-      </span>
-      hunyorít.
-      <span class="mention character-IREN">
-       IRÉN
-      </span>
-      🔦 BE <br>
-      <span class="sfx-list"><button class="sfx" data-sound="jazz-intro">▶ jazz intro</button></span>
-     </div>
-    </div>
-    <div class="line dialogue character-ZSOLT">
-     <div class="speaker">
-      ZSOLT
-     </div>
-     <div class="text">
-      Nem megyek sehova! Nem megyek el innen! Nem!
-     </div>
-    </div>
+    </nav>
+    <main class="wrap">
+      <header class="hero">
+        <h1>Stermeczky Eszter: Hidak Istene</h1>
+        <div class="meta">Jelige: Duna</div>
+        
+        <section aria-label="Szereplők" class="cast">
+          <div class="cast-grid">
+            <div class="cast-card character-ZSOLT">
+              <div class="cast-role character-ZSOLT">ZSOLT</div>
+              <div class="cast-desc">negyvenes édesapa</div>
+            </div>
+            
+            <div class="cast-card character-IREN">
+              <div class="cast-role character-IREN">IRÉN</div>
+              <div class="cast-desc">ötvenes szociális munkás</div>
+            </div>
+            
+            <div class="cast-card character-SUTYI">
+              <div class="cast-role character-SUTYI">SUTYI</div>
+              <div class="cast-desc">konyhai kisegítőfiú</div>
+            </div>
+            
+            <div class="cast-card character-ARPI">
+              <div class="cast-role character-ARPI">ÁRPI BÁCSI</div>
+              <div class="cast-desc">hajléktalan</div>
+            </div>
+            
+            <div class="cast-card character-MILAN">
+              <div class="cast-role character-MILAN">MILÁN</div>
+              <div class="cast-desc">tinédzser fiú</div>
+            </div>
+            
+            <div class="cast-card character-SUTYI_FONOKE">
+              <div class="cast-role character-SUTYI_FONOKE">SUTYI FŐNÖKE</div>
+              <div class="cast-desc">csak hang</div>
+            </div>
+          </div>
+        </section>
+      </header>
+      
+      <section aria-label="Szövegkönyv" class="script">
+        <div class="line stage">
+          <div class="speaker"></div>
+          <div class="text">A dráma Budapesten éjjel, az Ördög-árok kifolyójánál játszódik, ahonnan tökéletesen rálátni az Erzsébet hídra.<br>
+            Sötét. Teljes csend. <br>
+            🟡BE A felkapcsolódó fényforrás egyedül egy idősebb férfi, 
+            <span class="mention character-ARPI">ÁRPI BÁCSI</span> 
+            arcát világítja meg.
+          </div>
+        </div>
+        
+        <div class="line dialogue character-ARPI">
+          <div class="speaker">ÁRPI BÁCSI</div>
+          <div class="text">Mit keres itt?! Az Ördög végbélnyílása ez, itt köpi ki magából az elhullottakat. Takarodjon innen! Takarodjon, hallja?! El fogja vinni, el fogja vinni magát is. Az Ördög! Elsodorja magával. Éjjelenként Sztüxszé változik a folyó. Menjen már! Jön a vihar.</div>
+        </div>
+        
+        <div class="line stage">
+          <div class="speaker"></div>
+          <div class="text">
+            <span class="sfx-list"><button class="sfx" data-sound="jazz-intro">▶ jazz intro</button></span><br>
+            Ismételt sötétség. Egyelőre csak a kifolyóhoz beszűrődő hanghatásokat halljuk: a közeli Jazz klubból kiszűrődő zenét, az ég dörgését, és egy ijedt férfi, 
+            <span class="mention character-ZSOLT">ZSOLT</span> 
+            <u>zihálását</u>. <br>
+            🌩️ x2 A történet folyamán a dörgés egyre hangosabbá válik, és elkezd villámlani is. <br>
+            ⌚︎ Csipogás. A színpad közepén felgyullad egy apró fény, majd eltűnik. Néhány másodpercen belül ismét felgyullad. Elégedetlen ciccegés. A fény egy férfi, 
+            <span class="mention character-ZSOLT">ZSOLT</span> 
+            okosórájából árad. Próbál vele kezdeni valamit, nyomkodja, de nem sötétedik el, vagy ha el is sötétedik, mindig újra felvillan. 
+            <span class="mention character-ZSOLT">ZSOLT</span> 
+            lejjebb húzza kabátja ujját, hogy eltakarja a fényt. <br>
+            🔦BE A takarás mögül váratlanul egy zseblámpa fénye világítja meg szórtan. A fény a ruhájáról feltéved az arcára. <span class="mention character-IREN">IRÉN</span> be. 
+            <span class="mention character-ZSOLT">ZSOLT</span> hunyorít.
+          </div>
+        </div>
+        
+        <div class="line dialogue character-ZSOLT">
+          <div class="speaker">ZSOLT</div>
+          <div class="text">Nem megyek sehova! Nem megyek el innen! Nem!</div>
+        </div>
+        
     <div class="line dialogue character-IREN">
      <div class="speaker">
       IRÉN
